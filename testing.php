@@ -9,7 +9,7 @@
 
 <body>
     <h2>Upload Candidate CV</h2>
-    <h2 class="d-none">Upload Candidate CV</h2>
+     
 
     <form action="upload_cv.php" method="post" enctype="multipart/form-data">
         <label for="cv">Select CV file:</label>
