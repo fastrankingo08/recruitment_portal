@@ -1,0 +1,9 @@
+.form-control, .form-select {font-size: 14px !important;}
+.error_msg{color: red; font-size: 12px;}
+.form-control{color:#4c5258 !important; font-size:14px !important;}
+.input-group-append span{padding: 5px;  display: inline-flex;}
+.emailtextonly {text-transform: lowercase !important;}
+.btn{font-size: 15px !important;}
+.mrTop40{margin-top: 40px;}
+.closeBTNMain{position: absolute; max-width: 30px; float: right; right: 15px;}
+.closeBTN{float: right; border: 1px solid #333; border-radius: 100px; padding: 5px; cursor: pointer; position: relative;  width: 30px; height: 30px; text-align: center;}
