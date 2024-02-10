@@ -1,10 +1,20 @@
 <header class="top-header">
             <nav class="navbar navbar-expand gap-3">
                 <div class="mobile-menu-button"><ion-icon name="menu-sharp"></ion-icon></div>
-
-                <div class="top-navbar-right ms-auto">
-
-                    <ul class="navbar-nav align-items-center">
+                    <div class="admin-name">
+                         <h3>Hi,Arif</h3>
+                         <div>welcome back !</div>
+                      </div>
+                  <div class="top-navbar-right ms-auto">
+                      <ul class="navbar-nav align-items-center">
+                        <li>
+                            <div class="search-box">
+                                 <div class="admin-search">
+                                    <span><i class="fa-solid fa-magnifying-glass"></i> </span>
+                                    <input type="text" placeholder="Search here">
+                                 </div>
+                            </div>
+                        </li>
                         <li class="nav-item dropdown dropdown-large dropdown-apps">
                             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                 <div class="">

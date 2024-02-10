@@ -377,23 +377,23 @@ var options = {
 var ctx = document.getElementById('chart5').getContext('2d');
 
 var gradientStroke1 = ctx.createLinearGradient(0, 0, 0, 300);
-    gradientStroke1.addColorStop(0, '#005bea');
-    gradientStroke1.addColorStop(1, '#00c6fb');
+    gradientStroke1.addColorStop(0, '#21a4df');
+    gradientStroke1.addColorStop(1, '#21a4df');
 
 var gradientStroke2 = ctx.createLinearGradient(0, 0, 0, 300);
-    gradientStroke2.addColorStop(0, '#ff6a00');  
-    gradientStroke2.addColorStop(1, '#ee0979'); 
+    gradientStroke2.addColorStop(0, '#001687');  
+    gradientStroke2.addColorStop(1, '#001687'); 
 
 var gradientStroke3 = ctx.createLinearGradient(0, 0, 0, 300);
-    gradientStroke3.addColorStop(0, '#17ad37');  
-    gradientStroke3.addColorStop(1, '#98ec2d'); 
+    gradientStroke3.addColorStop(0, '#b3ef42');  
+    gradientStroke3.addColorStop(1, '#b3ef42'); 
 
 var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
-        labels: ['Desktop', 'Mobile', 'Tablet'],
+        labels: ['Screen', 'Interview', 'Onboard'],
         datasets: [{
-            data: [155, 120, 110],
+            data: [1, 4, 2],
             backgroundColor: [
                 gradientStroke1,
                 gradientStroke2,

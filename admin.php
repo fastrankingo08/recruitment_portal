@@ -63,20 +63,20 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                 <!--start breadcrumb-->
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center  justify-content-between">
                     <div class="ps-3 d-flex">
-                    <div class="breadcrumb-title pe-1">Dashboard</div>
+                        <div class="breadcrumb-title pe-1">Dashboard</div>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0 align-items-center">
                                 <li class="breadcrumb-item"><a href="javascript:;">
                                         <ion-icon name="home-outline"></ion-icon>
                                     </a>
                                 </li>
-                             </ol>
+                            </ol>
                         </nav>
-                        
-                     </div>
-                     <div class="ps-3">
-                         <div class="date-search">
-                           <div class="form-group">
+
+                    </div>
+                    <div class="ps-3">
+                        <div class="date-search">
+                            <div class="form-group">
                                 <label for="from">From</label>
                                 <input type="date" class="search-control">
                             </div>
@@ -87,8 +87,8 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                             <div class="searc-btn">
                                 <button class="btn btn-success">Search</button>
                             </div>
-                         </div>
-                      </div>
+                        </div>
+                    </div>
                 </div>
                 <!--end breadcrumb-->
 
@@ -204,6 +204,20 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                 <div class="row">
                     <div class="col-12 col-lg-8 col-xl-8 d-flex">
                         <div class="card radius-10 w-100">
+                            <div class="card-body">
+                                <div class="interview-title d-flex ">
+                                    <h6>Performance Overview</h6>
+                                    <ul class="applicant-chart-status">
+                                        <li><span class="interview"></span> Interview</li>
+                                        <li style="color:#b3ef42"><span class="offer"></span> Offered</li>
+                                    </ul>
+                                    <ion-icon name="ellipsis-horizontal-sharp" role="img" class="md hydrated"
+                                        aria-label="ellipsis horizontal sharp"></ion-icon>
+                                </div>
+                                <div class="chart-container7">
+                                    <canvas id="chart7"></canvas>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-4 col-xl-4 d-flex">
@@ -270,7 +284,26 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                 </div>
                 <div class="row">
                     <div class="col-12 col-lg-4 col-xl-4 d-flex">
-                        <div class="card radius-10 w-100">
+                        <div class="card radius-10 overflow-hidden w-100">
+                            <div class="card-body">
+                                <div class="interview-title d-flex ">
+                                    <h6>Applicant Statistics</h6>
+                                    <ion-icon name="ellipsis-horizontal-sharp" role="img" class="md hydrated"
+                                        aria-label="ellipsis horizontal sharp"></ion-icon>
+                                </div>
+                                <div class="chart-container6">
+                                    <div class="piechart-legend">
+                                        <h2 class="mb-1">130</h2>
+                                        <h6 class="mb-0">Applicant</h6>
+                                    </div>
+                                    <canvas id="chart5" width="450px"></canvas>
+                                </div>
+                            </div>
+                            <ul class="applicant-chart-status">
+                                <li><span class="screen"></span> Screen</li>
+                                <li><span class="interview"></span> Interview</li>
+                                <li><span class="onboard"></span> Onboard</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="col-12 col-lg-8 col-xl-8 d-flex">
@@ -286,11 +319,11 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                         <table class="comman-table">
                                             <thead>
                                                 <tr>
-                                                    <th>Candidate</th>
+                                                    <th width="25%">Candidate</th>
                                                     <th>Step</th>
                                                     <th>Date Applied</th>
                                                     <th>Resume</th>
-                                                    <th>Job Applied</th>
+                                                    <th width="15%">Job Applied</th>
                                                 </tr>
                                             </thead>
                                             <tr>
@@ -352,90 +385,14 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-lg-8 col-xl-8 d-flex">
+                    <div class="col-12 col-lg-8 col-xl-8 d-none">
                         <div class="card radius-10 w-100">
                             <div class="card-body">
-                                <div class="d-flex align-items-center mb-3">
-                                    <h6 class="mb-0">Sales Status Metrics</h6>
-                                    <div class="dropdown options ms-auto">
-                                        <div class="dropdown-toggle dropdown-toggle-nocaret" data-bs-toggle="dropdown">
-                                            <ion-icon name="ellipsis-horizontal-sharp"></ion-icon>
-                                        </div>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="javascript:;">Action</a></li>
-                                            <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
-                                            <li><a class="dropdown-item" href="javascript:;">Something else here</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div
-                                    class="row row-cols-1 row-cols-lg-3 g-3 justify-content-start align-items-center mb-3">
-                                    <div class="col">
-                                        <h5 class="mb-0">974 <span class="text-success font-13">56% <ion-icon
-                                                    name="arrow-up-outline"></ion-icon></span></h5>
-                                        <p class="mb-0">Avg. Session</p>
-                                    </div>
-                                    <div class="col">
-                                        <h5 class="mb-0">1,218 <span class="text-success font-13">34% <ion-icon
-                                                    name="arrow-up-outline"></ion-icon></span></h5>
-                                        <p class="mb-0">Conversion. Rate</p>
-                                    </div>
-                                    <div class="col">
-                                        <h5 class="mb-0">10,317 <span class="text-success font-13">22% <ion-icon
-                                                    name="arrow-up-outline"></ion-icon></span></h5>
-                                        <p class="mb-0">Avg. Session Duration</p>
-                                    </div>
-                                </div>
                                 <!--end row-->
-
                                 <div class="chart-container7">
                                     <canvas id="chart4"></canvas>
                                 </div>
-
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-xl-4 d-flex">
-                        <div class="card radius-10 overflow-hidden w-100">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center mb-3">
-                                    <h6 class="mb-0">Sessions By Call</h6>
-                                    <div class="dropdown options ms-auto">
-                                        <div class="dropdown-toggle dropdown-toggle-nocaret" data-bs-toggle="dropdown">
-                                            <ion-icon name="ellipsis-horizontal-sharp"></ion-icon>
-                                        </div>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="javascript:;">Action</a></li>
-                                            <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
-                                            <li><a class="dropdown-item" href="javascript:;">Something else here</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="chart-container6">
-                                    <div class="piechart-legend">
-                                        <h2 class="mb-1">8,452</h2>
-                                        <h6 class="mb-0">Total Sessions</h6>
-                                    </div>
-                                    <canvas id="chart5"></canvas>
-                                </div>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li
-                                    class="list-group-item d-flex justify-content-between align-items-center border-top">
-                                    Agent1
-                                    <span class="badge bg-tiffany rounded-pill">558</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    Agent2
-                                    <span class="badge bg-success rounded-pill">204</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    Agent3
-                                    <span class="badge bg-danger rounded-pill">108</span>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
