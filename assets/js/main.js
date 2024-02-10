@@ -30,14 +30,7 @@ $(function() {
 		}))
 	})
 
-
-
-
-
-
-
-
-
+ 
   $(".btn-mobile-filter").on("click", function() {
 		$(".filter-sidebar").removeClass("d-none");
 	}),
@@ -46,9 +39,7 @@ $(function() {
 		$(".filter-sidebar").addClass("d-none");
 	}),
 
-
-
-
+ 
   $(".mobile-search-button").on("click", function() {
 
     $(".searchbar").addClass("full-search-bar")
@@ -60,10 +51,7 @@ $(function() {
     $(".searchbar").removeClass("full-search-bar")
 
   }),
-
-  
-
-
+ 
   $(document).ready(function() {
 		$(window).on("scroll", function() {
 			$(this).scrollTop() > 300 ? $(".back-to-top").fadeIn() : $(".back-to-top").fadeOut()
@@ -73,10 +61,7 @@ $(function() {
 			}, 600), !1
 		})
 	})
-
-
-
-
+ 
   $(".dark-mode-icon").on("click", function() {
 
     if($(".mode-icon ion-icon").attr("name") == 'sunny-sharp') {
@@ -88,11 +73,7 @@ $(function() {
     }
 
   }), 
-
-
-
-
-
+ 
 // Theme switcher 
 
 $("#LightTheme").on("click", function() {
@@ -185,9 +166,7 @@ function theme8() {
       $('[data-bs-toggle="tooltip"]').tooltip();
     })
 
-
-  
-
-  
+ 
     
 });
+
