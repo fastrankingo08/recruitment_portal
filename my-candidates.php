@@ -365,9 +365,9 @@ $logined_username =  $_SESSION['logined_user'];
                                     <th>ID</th>
                                     <th>Full Name</th>
                                     <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Experience</th>
-                                    <th>Current Salary</th>
+                                    <th>Phone</th> 
+                                    <th>Interview Status</th>
+                                    <th>Current Status</th>
                                     <th>Expected Salary</th>
                                     <th>Applied Job Position</th>
                                     <th>Edit Candidate</th>
@@ -383,8 +383,10 @@ $logined_username =  $_SESSION['logined_user'];
                                             <td><?php echo $data['first_name'] . " " . $data['middile_name'] . " " . $data['last_name']; ?></td>
                                             <td><?php echo $data['primary_email']; ?></td>
                                             <td><?php echo $data['phone']; ?></td>
-                                            <td><?php echo $data['relevant_work_experience']; ?></td>
-                                            <td><?php echo $data['current_salary']; ?></td>
+                                            <!-- <td><?php echo $data['relevant_work_experience']; ?></td>
+                                            <td><?php echo $data['current_salary']; ?></td> -->
+                                            <td><?php echo $data['interview_status']; ?></td>
+                                            <td><?php echo $data['current_status']; ?></td>
                                             <td><?php echo $data['expected_salary']; ?></td>
                                             <td><?php echo $data['applied_job_position']; ?></td>
                                             <td><a href="edit-candidate.php?id=<?php echo $data['candidate_id']; ?> ">

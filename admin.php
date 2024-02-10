@@ -8,6 +8,47 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     exit();
 }
 
+
+$server = "153.92.6.103";
+$user = "u923315908_revisewithmeU";
+$password = "Bh@rat$2023#";
+$database = "u923315908_revisewithmeDB";
+$conn = new mysqli($server, $user, $password, $database);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$username = $_SESSION['logined_user'];
+
+$query = "
+    SELECT
+        COUNT(*) AS total_candidates,
+        SUM(CASE WHEN interview_status = 'Offered' THEN 1 ELSE 0 END) AS total_offered,
+        SUM(CASE WHEN interview_scheduled = 'interview_scheduled' THEN 1 ELSE 0 END) AS total_scheduled,
+        SUM(CASE WHEN current_status = 'Joined-Active' THEN 1 ELSE 0 END) AS total_joined_active,
+        SUM(CASE WHEN current_status = 'Joined-InActive' THEN 1 ELSE 0 END) AS total_joined_inactive
+    FROM
+        candidate_details
+";
+
+$result = $conn->query($query);
+
+if ($result && $row = $result->fetch_assoc()) {
+    $total_candidates = $row['total_candidates'];
+    $total_offered = $row['total_offered'];
+    $total_scheduled = $row['total_scheduled'];
+    $total_joined_active = $row['total_joined_active'];
+    $total_joined_inactive = $row['total_joined_inactive'];
+} else {
+    $total_candidates = 0;
+    $total_offered = 0;
+    $total_scheduled = 0;
+    $total_joined_active = 0;
+    $total_joined_inactive = 0;
+}
+
+$conn->close();
 ?>
 
 <!doctype html>
@@ -177,7 +218,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                         <div class="parent-icon"><i class="fadeIn animated bx bx-calendar"></i>
                         </div>
                         <div class="menu-title">Meeting Calendar</div>
-                    </a> 
+                    </a>
                 </li>
             </ul>
 
@@ -393,72 +434,97 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                         <div class="card radius-10">
                             <div class="card-body">
                                 <div class="d-flex align-items-center gap-2">
-                                    <div class="fs-5"><ion-icon name="person-add-outline"></ion-icon></div>
+                                    <div class="fs-5"><ion-icon name="mail-outline"></ion-icon></div>
                                     <div>
-                                        <p class="mb-0">Total Meeting</p>
+                                        <p class="mb-0">Total Candidates</p>
                                     </div>
                                     <div class="fs-5 ms-auto"><ion-icon name="ellipsis-horizontal-sharp"></ion-icon></div>
                                 </div>
                                 <div class="d-flex align-items-center mt-3">
                                     <div>
-                                        <h5 class="mb-0"><?php echo $row2; ?></h5>
+                                        <h5 class="mb-0"><?php echo $total_candidates; ?></h5>
                                     </div>
-                                    <!-- <div class="ms-auto" id="chart4"></div> -->
+                                    <!-- <div class="ms-auto" id="chart7"></div> -->
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="col">
                         <div class="card radius-10">
                             <div class="card-body">
                                 <div class="d-flex align-items-center gap-2">
                                     <div class="fs-5"><ion-icon name="heart-outline"></ion-icon></div>
                                     <div>
-                                        <p class="mb-0">QA Approved</p>
+                                        <p class="mb-0">Total Sceduled</p>
                                     </div>
                                     <div class="fs-5 ms-auto"><ion-icon name="ellipsis-horizontal-sharp"></ion-icon></div>
                                 </div>
                                 <div class="d-flex align-items-center mt-3">
                                     <div>
-                                        <h5 class="mb-0"><?php echo $row; ?></h5>
+                                        <h5 class="mb-0"><?php echo $total_scheduled; ?></h5>
                                     </div>
                                     <!-- <div class="ms-auto" id="chart5"></div> -->
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col">
+                        <div class="card radius-10">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="fs-5"><ion-icon name="person-add-outline"></ion-icon></div>
+                                    <div>
+                                        <p class="mb-0">Total Offered</p>
+                                    </div>
+                                    <div class="fs-5 ms-auto"><ion-icon name="ellipsis-horizontal-sharp"></ion-icon></div>
+                                </div>
+                                <div class="d-flex align-items-center mt-3">
+                                    <div>
+                                        <h5 class="mb-0"><?php echo $total_offered; ?></h5>
+                                    </div>
+                                    <!-- <div class="ms-auto" id="chart4"></div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <div class="col">
                         <div class="card radius-10">
                             <div class="card-body">
                                 <div class="d-flex align-items-center gap-2">
                                     <div class="fs-5"><ion-icon name="chatbox-outline"></ion-icon></div>
                                     <div>
-                                        <p class="mb-0">QA Hold</p>
+                                        <p class="mb-0"> JOINED ACTIVE</p>
                                     </div>
                                     <div class="fs-5 ms-auto"><ion-icon name="ellipsis-horizontal-sharp"></ion-icon></div>
                                 </div>
                                 <div class="d-flex align-items-center mt-3">
                                     <div>
-                                        <h5 class="mb-0"><?php echo $row; ?></h5>
+                                        <h5 class="mb-0"><?php echo  $total_joined_active; ?></h5>
                                     </div>
                                     <!-- <div class="ms-auto" id="chart6"></div> -->
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
                     <div class="col">
                         <div class="card radius-10">
                             <div class="card-body">
                                 <div class="d-flex align-items-center gap-2">
                                     <div class="fs-5"><ion-icon name="mail-outline"></ion-icon></div>
                                     <div>
-                                        <p class="mb-0">QA Re-Work Required</p>
+                                        <p class="mb-0">JOINED INACTIVE</p>
                                     </div>
                                     <div class="fs-5 ms-auto"><ion-icon name="ellipsis-horizontal-sharp"></ion-icon></div>
                                 </div>
                                 <div class="d-flex align-items-center mt-3">
                                     <div>
-                                        <h5 class="mb-0"><?php echo $row; ?></h5>
+                                        <h5 class="mb-0"> <?php echo $total_joined_inactive; ?></h5>
                                     </div>
                                     <!-- <div class="ms-auto" id="chart7"></div> -->
                                 </div>

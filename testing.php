@@ -19,11 +19,8 @@
 
         <label for="candidateName">Candidate Name:</label>
         <input type="text" name="candidateName" id="candidateName" required>
-
         <br>
-
         <input type="submit" value="Upload CV">
     </form>
 </body>
-
 </html>
