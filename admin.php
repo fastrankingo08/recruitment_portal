@@ -63,7 +63,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                 <!--start breadcrumb-->
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center  justify-content-between">
                     <div class="ps-3 d-flex">
-                        <div class="breadcrumb-title pe-1">Dashboard</div>
+                        <div class="breadcrumb-title pe-1">Dashboardsss</div>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0 align-items-center">
                                 <li class="breadcrumb-item"><a href="javascript:;">
@@ -215,7 +215,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                         aria-label="ellipsis horizontal sharp"></ion-icon>
                                 </div>
                                 <div class="chart-container7">
-                                    <canvas id="chart7"></canvas>
+                                   <canvas id="performanceChart"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -441,6 +441,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     <script src="assets/vendor/datatable/js/jquery.dataTables.min.js"></script>
     <script src="assets/vendor/datatable/js/dataTables.bootstrap5.min.js"></script>
     <script src="assets/js/table-datatable.js"></script>
+ 
     <script src="assets/js/dashboard.js"></script>
     <!-- Main JS-->
     <script src="assets/js/main.js"></script>
