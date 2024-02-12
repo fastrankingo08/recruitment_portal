@@ -15,7 +15,7 @@ $password = "Bh@rat$2023#";
 $database = "u923315908_revisewithmeDB";
 
 $conn = new mysqli($server, $user, $password, $database);
-$logined_username =  $_SESSION['logined_user'];
+// $email =  $_SESSION['logined_email'];
 ?>
 
 <!doctype html>
@@ -30,20 +30,20 @@ $logined_username =  $_SESSION['logined_user'];
     <link href="assets/vendor/metismenu/css/metisMenu.min.css" rel="stylesheet" />
     <link href="assets/vendor/select2/css/select2.min.css" rel="stylesheet" />
     <link href="assets/vendor/select2/css/select2-bootstrap4.css" rel="stylesheet" />
-
-    <!-- table search -->
-    <link href="assets/vendor/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/bootstrap-extended.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/custom.css" rel="stylesheet">
     <link href="assets/css/icons.css" rel="stylesheet">
+
+    <!-- table -->
+    <link href="assets/vendor/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <title>RAR CRM - Create Department</title>
 
 </head>
-
 <body>
     <!--start wrapper-->
     <div class="wrapper">
@@ -66,7 +66,7 @@ $logined_username =  $_SESSION['logined_user'];
 
                 <!-- Dashboard -->
                 <li>
-                    <a href="hr_Dashboard.php">
+                    <a href="admin.php">
                         <div class="parent-icon"><i class="fadeIn animated bx bx-home-alt"></i>
                         </div>
                         <div class="menu-title">Dashboard</div>
@@ -74,27 +74,53 @@ $logined_username =  $_SESSION['logined_user'];
                 </li>
                 <!-- New Candidate -->
                 <li>
-                    <a class="has-arrow" href="javascript:;">
+                    <a href="users-list.php">
+                        <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
+                        </div>
+                        <div class="menu-title">User List</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="create-user.php">
                         <div class="parent-icon"><i class="fadeIn animated bx bx-calendar-plus"></i>
                         </div>
-                        <div class="menu-title">New Candidate </div>
+                        <div class="menu-title">Create New User</div>
                     </a>
-                    <ul>
-                        <li> <a href="candidate-details.php"><ion-icon name="ellipse-outline"></ion-icon>New Candidate</a>
-                        </li>
-                    </ul>
+
                 </li>
 
-
-
-                <!-- My Candidate -->
                 <li>
-                    <a href="#">
+                    <a href="create-candidate.php">
+                        <div class="parent-icon"><i class="fadeIn animated bx bx-calendar-plus"></i>
+                        </div>
+                        <div class="menu-title">Create New Candidate</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="all-candidates.php">
+                        <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
+                        </div>
+                        <div class="menu-title">See All Candidates</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="my-candidates.php">
                         <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
                         </div>
                         <div class="menu-title">My Candidates</div>
                     </a>
                 </li>
+
+                <li>
+                    <a href="shortlisted-candidates.php">
+                        <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
+                        </div>
+                        <div class="menu-title">Shortlisted/Scheduled Candidates</div>
+                    </a>
+                </li>
+
 
                 <!-- My Interview -->
                 <li>
@@ -121,11 +147,17 @@ $logined_username =  $_SESSION['logined_user'];
                         <div class="menu-title">My Hires</div>
                     </a>
                     <ul>
-                        <li> <a href="create-meeting.html"><ion-icon name="ellipse-outline"></ion-icon>Create Meeting</a>
+                        <li> <a href="create-meeting.html"><ion-icon name="ellipse-outline"></ion-icon>Offered</a>
                         </li>
-                        <li> <a href="my-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>My Meetings</a>
+                        <li> <a href="my-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Training & Induction</a>
                         </li>
-                        <li> <a href="all-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>All Meetings</a>
+                        <li> <a href="all-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Joind - Active</a>
+                        </li>
+                        <li> <a href="create-meeting.html"><ion-icon name="ellipse-outline"></ion-icon>Joind - InActive</a>
+                        </li>
+                        <li> <a href="my-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Abscoding</a>
+                        </li>
+                        <li> <a href="all-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Resigned</a>
                         </li>
                     </ul>
                 </li>
@@ -151,11 +183,8 @@ $logined_username =  $_SESSION['logined_user'];
                         </div>
                         <div class="menu-title">Meeting Calendar</div>
                     </a>
-
                 </li>
-
             </ul>
-
             <!--end navigation-->
         </aside>
         <!--end sidebar -->
@@ -353,24 +382,29 @@ $logined_username =  $_SESSION['logined_user'];
                 </div>
 
                 <?php
-                $sql = "SELECT * FROM candidate_details WHERE created_by = '$logined_username'";
+                // $sql = "SELECT * FROM candidate_details WHERE interview_status='interview_scheduled' "; 
+                $sql = "SELECT * FROM candidate_details WHERE interview_status ='Offered' AND created_by='" . $_SESSION['logined_user'] . "'";
                 $send = $conn->query($sql);
                 ?>
-
-                <div class="row">
-                    <div class="col-xl-12 mx-auto">
-                        <table class='table' id='example' border="2px">
+                <div class="row ">
+                    <div class="col-xl-12 ">
+                        <table class='table' id="example"  border="2px">
                             <thead>
-                                <tr class="text-center mx-auto">
-                                    <th>ID</th>
-                                    <th>Full Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th> 
-                                    <th>Interview Status</th>
-                                    <th>Current Status</th>
-                                    <th>Expected Salary</th>
-                                    <th>Applied Job Position</th>
-                                    <th>Edit Candidate</th>
+                                <tr class="text-center mx-auto" >
+                                    <th class="ms-0 ps-0">ID</th>
+                                    <th class="ms-0 ps-0">Interview Status</th>
+                                    <th class="ms-0 ps-0">Created By</th>
+                                    <th class="ms-0 ps-0">Name</th>
+                                    <th class="ms-0 ps-0">Email</th>
+                                    <th class="ms-0 ps-0">Phone</th>
+                                    <!-- <th class="ms-0 ps-0">Experience</th> -->
+                                    <!-- <th>Cur. Salary</th> -->
+                                    <!-- <th>Expec. Salary</th> -->
+                                    <th class="ms-0 ps-0">Applied For</th>
+                                    <th class="ms-0 ps-0">See Card</th>
+                                    <!-- <th class="ms-0 ps-0">SCHEDULE </th>
+                                    <th class="ms-0 ps-0">STATUS</th>  
+                                    <th class="ms-0 ps-0">CHECK</th>  -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -378,21 +412,22 @@ $logined_username =  $_SESSION['logined_user'];
                                 if ($send->num_rows > 0) {
                                     while ($data = $send->fetch_assoc()) {
                                 ?>
-                                        <tr class="text-center mx-auto">
+                                        <tr class="ms-0 ps-0">
                                             <td><?php echo $data['candidate_id']; ?></td>
+                                            <td><?php echo $data['interview_status']; ?></td>
+                                            <td><?php echo $data['created_by']; ?></td>
                                             <td><?php echo $data['first_name'] . " " . $data['middile_name'] . " " . $data['last_name']; ?></td>
                                             <td><?php echo $data['primary_email']; ?></td>
                                             <td><?php echo $data['phone']; ?></td>
-                                            <!-- <td><?php echo $data['relevant_work_experience']; ?></td>
-                                            <td><?php echo $data['current_salary']; ?></td> -->
-                                            <td><?php echo $data['interview_status']; ?></td>
-                                            <td><?php echo $data['current_status']; ?></td>
-                                            <td><?php echo $data['expected_salary']; ?></td>
+                                            <!-- <td><?php echo $data['relevant_work_experience']; ?></td> -->
+                                            <!-- <td><?php echo $data['current_salary']; ?></td> -->
+                                            <!-- <td><?php echo $data['expected_salary']; ?></td> -->
                                             <td><?php echo $data['applied_job_position']; ?></td>
-                                            <td><a href="edit-candidate.php?id=<?php echo $data['candidate_id']; ?> ">
-                                                    <button class="btn btn-primary">Edit</button>
-                                                </a>
-                                            </td>
+                                            <!-- <td><?php echo $data['round1_interview_date']; ?></td>  -->
+                                            <td> <a href="candidate-card.php?id=<?php echo $data['candidate_id']; ?>"><button class="button btn-primary radius-10">View CARD</button></a> </td>
+                                            <!-- <td> <a href="schedule-interview.php?id=<?php echo $data['candidate_id']; ?>"><button class="button btn-primary radius-10">Schedule INTERVIEW</button></a>   </td> 
+                                            <td> <a href="interview-status.php?id=<?php echo $data['candidate_id']; ?>"><button class="button btn-primary radius-10">Update STATUS</button></a>   </td> 
+                                            <td> <a href="check-interview-status.php?id=<?php echo $data['candidate_id']; ?>"><button class="button btn-primary radius-10">Check STATUS</button></a>   </td>  -->
                                         </tr>
                                 <?php
                                     }
@@ -406,9 +441,6 @@ $logined_username =  $_SESSION['logined_user'];
             </div>
             <!-- end page content-->
         </div>
-
-
-
         <!--Start Back To Top Button-->
         <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
         <!--End Back To Top Button-->
@@ -420,9 +452,6 @@ $logined_username =  $_SESSION['logined_user'];
 
     </div>
     <!--end wrapper-->
-
-
-
 
     <script>
         function toggleAddress() {
@@ -590,11 +619,12 @@ $logined_username =  $_SESSION['logined_user'];
             });
         });
     </script>
-    <script src="assets/vendor/datatable/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function() {
+<script src="assets/vendor/datatable/js/jquery.dataTables.min.js"></script>
+ <script>
+        $(document).ready(function () {
             $('#example').DataTable();
         });
     </script>
 </body>
+
 </html>

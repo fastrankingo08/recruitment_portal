@@ -85,7 +85,7 @@ ion-icon {
     height: 100%;
     background-color: var(--skyBlue);
     background-clip: padding-box;
-    border-right: 1px solid #0a58ca;
+    border-right: 2px solid #0a58ca;
     transition: all .2s;
     z-index: 16;
     box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
@@ -307,7 +307,7 @@ ion-icon {
 @media screen and (min-width: 1400px) {
 
     .wrapper.toggled .page-content-wrapper {
-        padding: 0 9rem 2em 9rem;
+        /* padding: 0 9rem 2em 9rem; */
     }
 }
 
@@ -832,7 +832,7 @@ ion-icon {
 
 .chart-container6 {
 	position: relative;
-	height: 250px;
+	height: 290px;
 }
 
 .chart-container7 {
@@ -873,7 +873,11 @@ ion-icon {
     transform: translate(-50%, -50%);
     text-align: center;
 }
-
+.piechart-legend h2{
+    color: var(--commanColor);
+    font-weight: 700;
+}
+ 
 .chart {
     position: relative;
     display: inline-block;
@@ -1506,6 +1510,17 @@ ul.categories-list li {
 .box-top-detail h6{
     font-size: 20px;
     color: var(--blueColor);
+    width: 79px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.box-top-detail h6:hover{
+    background: #001687;
+    color: #fff;
+    
 }
 .main-box-bottom{
     margin-top: 1rem;
@@ -1597,10 +1612,13 @@ ul.categories-list li {
 table.dataTable{
     background: #fff !important;
 }
+.custom-table{
+  overflow-x: auto;
+}
 .custom-table .comman-table{
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0 7px 
+    border-spacing: 0 15px 
 }
 .custom-table .comman-table tbody td:first-child {
     border-left: 1px solid var(--blueColor);
@@ -1703,6 +1721,61 @@ table.dataTable{
    color: var(--blueColor);
    margin-right: 6px;
 }
+.applicant-chart-status{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+}
+.applicant-chart-status li{
+    color: var(--blueColor);
+}
+.applicant-chart-status li span{
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+ }
+.applicant-chart-status li span.screen{
+    background: var(--greenColor);
+}
+.applicant-chart-status li span.interview{
+    background: #21a4df;
+}
+.applicant-chart-status li span.onboard{
+    background:var(--commanColor);
+}
+.applicant-chart-status li span.offer{
+    background:var(--greenColor);
+}
+.search-box{
+    margin-right: 10px;
+}
+.admin-name{
+    line-height: 8px;
+ }
+  .admin-name h3{
+    font-size: 22px;
+    color: var(--blueColor);
+ }
+ .admin-search{
+    position: relative;
+ }
+ .admin-search span{
+    position: absolute;
+    left: 10px;
+    top: 8px;
+ }
+ .admin-search input{
+    border: 1px solid #18bb6b;
+    height: 37px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 0 32px;
+    outline: none;
+    max-width: 600px;
+    width: 600px;
+ }
 @media screen and (max-width:620px) {
 	.top-header .navbar .dropdown-menu::after {
 		display: none
@@ -1721,4 +1794,11 @@ table.dataTable{
     .box-grid{
         grid-template-columns: auto;
     }
+    .admin-name {
+        display: none;
+    }
+    .admin-search input{
+        width: 100%;
+    }
 }
+

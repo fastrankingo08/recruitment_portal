@@ -392,13 +392,13 @@ $conn = new mysqli($server, $user, $password, $database);
                                     <th>Created By</th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Experience</th>
-                                    <th>Cur. Salary</th>
+                                    <th>Phone</th>                                     
                                     <!-- <th>Expec. Salary</th> -->
                                     <th>Applied For</th>
-                                    <th>Schedule Interview</th>
-                                    <th>InterView Status</th>
+                                    <!-- <th>Schedule Interview</th>
+                                    <th>InterView Status</th> -->
+                                    <th>EDIT</th>
+                                    <th>DELETE</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -411,13 +411,19 @@ $conn = new mysqli($server, $user, $password, $database);
                                             <td><?php echo $data['created_by']; ?></td>
                                             <td><?php echo $data['first_name'] . " " . $data['middile_name'] . " " . $data['last_name']; ?></td>
                                             <td><?php echo $data['primary_email']; ?></td>
-                                            <td><?php echo $data['phone']; ?></td>
-                                            <td><?php echo $data['relevant_work_experience']; ?></td>
-                                            <td><?php echo $data['current_salary']; ?></td>
+                                            <td><?php echo $data['phone']; ?></td> 
                                             <!-- <td><?php echo $data['expected_salary']; ?></td> -->
                                             <td><?php echo $data['applied_job_position']; ?></td>
-                                            <th><a href="schedule-interview.php"> <button class="radius-10">Schedule Interview</button> </a> </th>
-                                            <td><a href="interview-status.php">See Interview Status</a></td>
+                                            <!-- <th><a href="schedule-interview.php"> <button class="radius-10">Schedule Interview</button> </a> </th>
+                                            <td><a href="interview-status.php">See Interview Status</a></td> -->
+                                            <td><a href="candidate-edit-details.php?id=<?php echo $data['candidate_id']; ?> ">
+                                                    <button class="btn btn-primary">Edit</button>
+                                                </a>
+                                            </td>
+                                            <td><a href="delete-candidate.php?id=<?php echo $data['candidate_id']; ?> ">
+                                                    <button class="btn btn-danger">DELETE</button>
+                                                </a>
+                                            </td>
                                         </tr>
                                 <?php
                                     }

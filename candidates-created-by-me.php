@@ -66,7 +66,7 @@ $logined_username =  $_SESSION['logined_user'];
 
                 <!-- Dashboard -->
                 <li>
-                    <a href="hr_Dashboard.php">
+                    <a href="admin.php">
                         <div class="parent-icon"><i class="fadeIn animated bx bx-home-alt"></i>
                         </div>
                         <div class="menu-title">Dashboard</div>
@@ -74,27 +74,52 @@ $logined_username =  $_SESSION['logined_user'];
                 </li>
                 <!-- New Candidate -->
                 <li>
-                    <a class="has-arrow" href="javascript:;">
+                    <a href="users-list.php">
+                        <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
+                        </div>
+                        <div class="menu-title">User List</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="create-user.php">
                         <div class="parent-icon"><i class="fadeIn animated bx bx-calendar-plus"></i>
                         </div>
-                        <div class="menu-title">New Candidate </div>
+                        <div class="menu-title">Create New User</div>
                     </a>
-                    <ul>
-                        <li> <a href="candidate-details.php"><ion-icon name="ellipse-outline"></ion-icon>New Candidate</a>
-                        </li>
-                    </ul>
                 </li>
 
-
-
-                <!-- My Candidate -->
                 <li>
-                    <a href="#">
+                    <a href="create-candidate.php">
+                        <div class="parent-icon"><i class="fadeIn animated bx bx-calendar-plus"></i>
+                        </div>
+                        <div class="menu-title">Create New Candidate</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="all-candidates.php">
+                        <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
+                        </div>
+                        <div class="menu-title">See All Candidates</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="my-candidates.php">
                         <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
                         </div>
                         <div class="menu-title">My Candidates</div>
                     </a>
                 </li>
+
+                <li>
+                    <a href="shortlisted-candidates.php">
+                        <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
+                        </div>
+                        <div class="menu-title">Shortlisted/Scheduled Candidates</div>
+                    </a>
+                </li>
+
 
                 <!-- My Interview -->
                 <li>
@@ -121,11 +146,17 @@ $logined_username =  $_SESSION['logined_user'];
                         <div class="menu-title">My Hires</div>
                     </a>
                     <ul>
-                        <li> <a href="create-meeting.html"><ion-icon name="ellipse-outline"></ion-icon>Create Meeting</a>
+                        <li> <a href="create-meeting.html"><ion-icon name="ellipse-outline"></ion-icon>Offered</a>
                         </li>
-                        <li> <a href="my-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>My Meetings</a>
+                        <li> <a href="my-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Training & Induction</a>
                         </li>
-                        <li> <a href="all-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>All Meetings</a>
+                        <li> <a href="all-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Joind - Active</a>
+                        </li>
+                        <li> <a href="create-meeting.html"><ion-icon name="ellipse-outline"></ion-icon>Joind - InActive</a>
+                        </li>
+                        <li> <a href="my-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Abscoding</a>
+                        </li>
+                        <li> <a href="all-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Resigned</a>
                         </li>
                     </ul>
                 </li>
@@ -151,9 +182,7 @@ $logined_username =  $_SESSION['logined_user'];
                         </div>
                         <div class="menu-title">Meeting Calendar</div>
                     </a>
-
                 </li>
-
             </ul>
 
             <!--end navigation-->
@@ -365,12 +394,13 @@ $logined_username =  $_SESSION['logined_user'];
                                     <th>ID</th>
                                     <th>Full Name</th>
                                     <th>Email</th>
-                                    <th>Phone</th> 
+                                    <th>Phone</th>
                                     <th>Interview Status</th>
                                     <th>Current Status</th>
                                     <th>Expected Salary</th>
                                     <th>Applied Job Position</th>
                                     <th>Edit Candidate</th>
+                                    <th>Delete Candidate</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -389,8 +419,12 @@ $logined_username =  $_SESSION['logined_user'];
                                             <td><?php echo $data['current_status']; ?></td>
                                             <td><?php echo $data['expected_salary']; ?></td>
                                             <td><?php echo $data['applied_job_position']; ?></td>
-                                            <td><a href="edit-candidate.php?id=<?php echo $data['candidate_id']; ?> ">
+                                            <td><a href="candidate-edit-details.php?id=<?php echo $data['candidate_id']; ?> ">
                                                     <button class="btn btn-primary">Edit</button>
+                                                </a>
+                                            </td>
+                                            <td><a href="delete-candidate.php?id=<?php echo $data['candidate_id']; ?> ">
+                                                    <button class="btn btn-danger">DELETE</button>
                                                 </a>
                                             </td>
                                         </tr>
@@ -597,4 +631,5 @@ $logined_username =  $_SESSION['logined_user'];
         });
     </script>
 </body>
+
 </html>

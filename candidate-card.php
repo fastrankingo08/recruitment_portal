@@ -298,17 +298,17 @@ if (isset($_GET['id'])) {
                                                                     <label class="form-label">Conducted Date <span class="error_msg">*</span></label>
                                                                     <input type="date" class="form-control" name="round1_conducted_date" value="<?php echo htmlspecialchars($data['round1_conducted_date']); ?>" required>
                                                                 </div>
- 
+
                                                                 <div class="col-md-4">
                                                                     <label class="form-label ">Conducted By<span class="error_msg">*</span></label>
-                                                                    <input type="text" class="form-control" name="round1_conducted_by" value="<?php echo $data['round1_conducted_by']; ?>"  required>
+                                                                    <input type="text" class="form-control" name="round1_conducted_by" value="<?php echo $data['round1_conducted_by']; ?>" required>
                                                                 </div>
 
                                                                 <div class="col-md-4">
                                                                     <label class="form-label">Round 1 Result<span class="error_msg">*</span></label>
                                                                     <select class="form-select" name="round1_result" id="round1" required>
                                                                         <!-- <option value="" disabled selected>Select</option> -->
-                                                                        <option value="<?php echo $data['round1_result']; ?>" class=" text-white" style="background-color: #3D4044;" ><?php echo $data['round1_result']; ?></option>
+                                                                        <option value="<?php echo $data['round1_result']; ?>" class=" text-white" style="background-color: #3D4044;"><?php echo $data['round1_result']; ?></option>
                                                                         <option value="Passed to Round II">Passed to Round II</option>
                                                                         <option value="Fail">Failed</option>
                                                                         <option value="On Hold">On Hold</option>
@@ -412,15 +412,15 @@ if (isset($_GET['id'])) {
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <label class="form-label ">ROUND 2 Conducted By<span class="error_msg">*</span></label>
-                                                                    <input type="text" class="form-control" name="round2_conducted_by" value="<?php echo $data['round2_conducted_by']; ?>"  required>
-                                                                    
+                                                                    <input type="text" class="form-control" name="round2_conducted_by" value="<?php echo $data['round2_conducted_by']; ?>" required>
+
                                                                 </div>
 
                                                                 <div class="col-md-4">
                                                                     <label class="form-label ">Round 2 Result<span class="error_msg">*</span></label>
                                                                     <select class="form-select" name="round2_result" id="round2" required>
                                                                         <!-- <option value="" disabled selected>Select</option> -->
-                                                                        <option value="<?php echo $data['round2_result']; ?>" class=" text-white" style="background-color: #3D4044;" ><?php echo $data['round2_result']; ?></option>
+                                                                        <option value="<?php echo $data['round2_result']; ?>" class=" text-white" style="background-color: #3D4044;"><?php echo $data['round2_result']; ?></option>
                                                                         <option value="Passed to Round III">Passed to Round III</option>
                                                                         <option value="Fail">Failed</option>
                                                                         <option value="On Hold">On Hold</option>
@@ -529,14 +529,14 @@ if (isset($_GET['id'])) {
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <label class="form-label ">ROUND 3 Conducted By<span class="error_msg">*</span></label>
-                                                                    <input type="text" class="form-control" name="round3_conducted_by" value="<?php echo $data['round3_conducted_by'] ; ?>" required>
+                                                                    <input type="text" class="form-control" name="round3_conducted_by" value="<?php echo $data['round3_conducted_by']; ?>" required>
                                                                 </div>
 
                                                                 <div class="col-md-4">
                                                                     <label class="form-label ">Round 3 Result<span class="error_msg">*</span></label>
                                                                     <select class="form-select" name="round3_result" id="round3" required>
                                                                         <!-- <option value="" disabled selected>Select</option> -->
-                                                                        <option value="<?php echo $data['round3_result']; ?>" class=" text-white" style="background-color: #3D4044;" ><?php echo $data['round3_result']; ?></option>
+                                                                        <option value="<?php echo $data['round3_result']; ?>" class=" text-white" style="background-color: #3D4044;"><?php echo $data['round3_result']; ?></option>
                                                                         <option value="Passed to Round IV">Passed to Round IV</option>
                                                                         <option value="Fail">Failed</option>
                                                                         <option value="On Hold">On Hold</option>
@@ -644,14 +644,14 @@ if (isset($_GET['id'])) {
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <label class="form-label ">ROUND 4 Conducted By<span class="error_msg">*</span></label>
-                                                                    <input type="text" class="form-control" name="round4_conducted_by" value="<?php echo $data['round4_conducted_by'] ; ?>" required>
+                                                                    <input type="text" class="form-control" name="round4_conducted_by" value="<?php echo $data['round4_conducted_by']; ?>" required>
                                                                 </div>
 
                                                                 <div class="col-md-4">
                                                                     <label class="form-label ">Round 4 Result<span class="error_msg">*</span></label>
                                                                     <select class="form-select" name="round4_result" id="round4" required>
                                                                         <!-- <option value="" disabled selected>Select</option> -->
-                                                                        <option value="<?php echo $data['round4_result']; ?>" class=" text-white" style="background-color: #3D4044;" ><?php echo $data['round4_result']; ?></option>
+                                                                        <option value="<?php echo $data['round4_result']; ?>" class=" text-white" style="background-color: #3D4044;"><?php echo $data['round4_result']; ?></option>
                                                                         <option value="Passed to Round V">Passed to Round V</option>
                                                                         <option value="Fail">Failed</option>
                                                                         <option value="On Hold">Hold</option>
@@ -676,7 +676,7 @@ if (isset($_GET['id'])) {
                                                                             <input type="text" class="form-control" name="round5_interviewer">
                                                                         </div>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
 
                                                                 <label class="form-label mt-3">Add Comment<span class="error_msg">*</span></label>
                                                                 <input type="text" class="form-control" name="round4_comment" required>
@@ -724,7 +724,6 @@ if (isset($_GET['id'])) {
                             <div class="row">
                                 <div class="card">
                                     <div class="card-body">
-
                                         <div class="p-5 radius-10" style="background-color: #3F4246;">
                                             <div class="card-title text-center mx-auto">
                                                 <h1 class="text-white">ROUND 5</h1>
@@ -738,7 +737,6 @@ if (isset($_GET['id'])) {
                                                 </div>
                                             </div>
                                         </div>
-
 
                                         <div class="row">
                                             <div class="col-md-9 p-5 text-center mx-auto">
@@ -762,7 +760,7 @@ if (isset($_GET['id'])) {
                                                                 <div class="col-md-4">
                                                                     <label class="form-label ">Round 5 Result<span class="error_msg">*</span></label>
                                                                     <select class="form-select" name="round5_result" id="round5" required>
-                                                                    <option value="<?php echo $data['round5_result']; ?>" class=" text-white" style="background-color: #3D4044;" ><?php echo $data['round5_result']; ?></option>
+                                                                        <option value="<?php echo $data['round5_result']; ?>" class=" text-white" style="background-color: #3D4044;"><?php echo $data['round5_result']; ?></option>
                                                                         <option value="Fail">Failed</option>
                                                                         <option value="On Hold">Hold</option>
                                                                         <option value="Offered">Offered</option>
@@ -776,6 +774,79 @@ if (isset($_GET['id'])) {
                                                             </div>
                                                         </form>
 
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <?php
+                        } elseif ($data['interview_status'] == 'Offered' ) {
+                            // Show ROUND 3 card only if round3_interview_date is not empty
+                        ?>
+                            <div class="row">
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        <!-- <div class="p-5 radius-10" style="background-color: #3F4246;">
+                                            <div class="card-title text-center mx-auto">
+                                                <h1 class="text-white">Overview</h1>
+                                            </div>
+                                            <!-- <div class="row text-white radius-10 pt-3  pb-2  text-center mx-auto mt-3" style="background-color: #000;">
+                                                <div class="col-md-6">
+                                                    <h4>SCHEDULED DATE : <?php echo $data['round5_interview_date'] ?> </h4>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h4>SCHEDULE TIME : [ <?php echo date('H:i:s', strtotime($data['round5_interview_time'])); ?> ]</h4>
+                                                </div>
+                                            </div> -->
+                                        </div>  
+
+
+                                        <div class="row">
+                                            <div class="col-md-9 p-5 text-center mx-auto">
+                                                <div class="card text-white radius-10" style="background-color: #121F1F;">
+                                                    <div class="card-body">
+                                                        <h4 class="text-center  radius-10 py-2 mx-auto text-white " style="background-color: #3F4246;">UPDATE CURRENT STATUS  </h4>
+
+                                                        <form action="update-interview-status.php" method="post">
+                                                            <div class="row p-3">
+                                                                <input type="hidden" class="form-control" name="candidate_id" value="<?php echo $userId; ?>">
+                                                                <input type="hidden" class="form-control" name="user_name" value="<?php echo $_SESSION['logined_user']; ?>">
+                                                                <!-- <div class="col-md-4">
+                                                                    <label class="form-label">ROUND 5 Conducted Date <span class="error_msg">*</span></label>
+                                                                    <input type="date" class="form-control" name="round5_conducted_date" value="<?php echo htmlspecialchars($data['round5_conducted_date']); ?>" required>
+                                                                </div> -->
+                                                                <!-- <div class="col-md-4">
+                                                                    <label class="form-label ">ROUND 5 Conducted By<span class="error_msg">*</span></label>
+                                                                    <input type="text" class="form-control" name="round5_conducted_by" value="<?php echo $data['round5_conducted_by']; ?>" required>
+                                                                </div> -->
+
+                                                                <div class="col-md-4">
+                                                                    <label class="form-label ">UPDATE CURRENT STATUS<span class="error_msg">*</span></label>
+                                                                    <select class="form-select" name="current_status" required>
+                                                                        <option value="<?php echo $data['current_status']; ?>" class="text-white" style="background-color: #3D4044;"><?php echo $data['current_status']; ?></option>
+                                                                        <option value="Training & Induction">Training & Induction</option>
+                                                                        <option value="Joined-Active">Joined-Active</option>
+                                                                        <option value="Joined-Inactive">Joined-Inactive</option>
+                                                                        <option value="Absconding">Absconding</option>
+                                                                        <option value="Resigned">Resigned</option>
+                                                                        <option value="Terminated">Terminated</option>
+                                                                    </select>
+                                                                </div>
+
+                                                                <div class="col-md-8">
+                                                                    <label class="form-label">Add Comment<span class="error_msg">*</span></label>
+                                                                    <input type="text" class="form-control" name="curent_status_comment" required>
+                                                                </div>
+
+                                                                <button class="text-center mx-auto mt-5 button btn-dark px-5 py-2 radius-10" style="height: auto; width:auto; font-size:18px">SUBMIT</button>
+                                                            </div>
+                                                        </form>
                                                     </div>
 
                                                 </div>

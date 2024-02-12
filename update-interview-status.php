@@ -46,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             round2_interview_time = '$round2interviewtime',
             round2_schedule_by = '$user_name',
             round2_will_take_by = '$round2interviewer', 
+            current_status = '$round1Result',
             round2_schedule_at = NOW()
             WHERE candidate_id = '$candidateId'";
 
@@ -75,6 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             round3_interview_time = '$round3interviewtime',
             round3_schedule_by = '$user_name',
             round3_will_take_by ='$round3interviewer',
+            current_status = '$round2Result',
             round3_schedule_at = NOW()
             WHERE candidate_id = '$candidateId'";
 
@@ -82,6 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("location: candidate-card.php?id=$candidateId");
             exit();
         }
+
     } elseif (isset($_POST['round3_conducted_date'])) {
         $round3ConductedDate = $_POST['round3_conducted_date'];
         $round3ConductedBy = $_POST['round3_conducted_by'];
@@ -92,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $round4interviewtime = $_POST['round4_interview_time'];
         $round4interviewer = $_POST['round4_interviewer'];
         $user_name = $_POST['user_name'];
- 
+
 
         // Perform the update for Round 1 in the database
         $updateRound3Query = "UPDATE candidate_details SET 
@@ -105,6 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             round4_interview_time = '$round4interviewtime',
             round4_schedule_by = '$user_name',
             round4_will_take_by ='$round4interviewer',
+            current_status = '$round3Result',
             round4_schedule_at = NOW()
             WHERE candidate_id = '$candidateId'";
 
@@ -134,6 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             round5_interview_time = '$round5interviewtime',
             round5_schedule_by = '$user_name',
             round5_will_take_by ='$round5interviewer',
+            current_status = '$round4Result',
             round5_schedule_at = NOW()
             WHERE candidate_id = '$candidateId'";
 
@@ -148,6 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $interview_status = $_POST['round5_result'];
         $round5Comment = $_POST['round5_comment']; 
         $user_name = $_POST['user_name'];
+        
 
         // Perform the update for Round 1 in the database
         $updateRound5Query = "UPDATE candidate_details SET 
@@ -155,8 +161,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             round5_conducted_by = '$round5ConductedBy',
             round5_result = '$round5Result',
             interview_status = '$interview_status',
-            round5_comment = '$round5Comment'    
-            WHERE candidate_id = '$candidateId'";
+            current_status = '$round5Result',
+            round5_comment = '$round5Comment'   
+
+            WHERE candidate_id = '$candidateId'";            
+
+        if ($conn->query($updateRound5Query)) {
+            header("location: candidate-card.php?id=$candidateId");
+            exit();
+        }
+    } 
+
+    elseif (isset($_POST['current_status'])) { 
+
+        $current_status = $_POST['current_status'];
+        $current_status_comment = $_POST['curent_status_comment'];        
+        $updated_by = $_POST['user_name']; 
+
+        $updateRound5Query = "UPDATE candidate_details SET 
+            current_status = '$current_status',
+            current_status_comment = '$current_status_comment', 
+            current_status_updated_by = '$updated_by',            
+            current_status_updated_at = NOW()  
+            WHERE candidate_id = '$candidateId'";            
 
         if ($conn->query($updateRound5Query)) {
             header("location: candidate-card.php?id=$candidateId");
@@ -167,5 +194,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
-
 ?>

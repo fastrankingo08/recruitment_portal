@@ -25,13 +25,15 @@ if (!$conn) {
         if ($row['type'] == 'user' && $row['status'] == 'Active') {
             $_SESSION['authenticated'] = true;
             $_SESSION['logined_user'] = $userName;
-            // $_SESSION['logined_email'] = $userEmail;
+            $_SESSION['user_type'] = "user";
 
+            // $_SESSION['logined_email'] = $userEmail;
             header("location:hr_Dashboard.php");
             exit();
         } else if ($row['type'] == 'admin' && $row['status'] == 'Active') {
             $_SESSION['authenticated'] = true;
             $_SESSION['logined_user'] = $userName;
+            $_SESSION['user_type'] = "admin";
             header("location:admin.php");
             exit();
         }

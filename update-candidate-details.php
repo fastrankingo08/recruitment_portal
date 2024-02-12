@@ -1,5 +1,5 @@
-<?php
-
+<?php 
+session_start();
 error_reporting(0);
 $server = "153.92.6.103";
 $user = "u923315908_revisewithmeU";
@@ -108,10 +108,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $updateResult = mysqli_query($conn, $updateQuery);
 
-    if ($updateResult) {
+    if ($updateResult && $_SESSION['user_type'] == 'user') {
        header("location:my-candidates.php");
-    } else {
-        echo "Error updating data: " . mysqli_error($conn);
+       exit();     
+    } elseif($updateResult && $_SESSION['user_type'] == 'admin') {
+        header("location:candidates-created-by-me.php");
+        exit();          
     }
 
     // Close the database connection
