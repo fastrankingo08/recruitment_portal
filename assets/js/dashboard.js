@@ -372,8 +372,14 @@ var options = {
     });
  
 
-
 // chart5
+let data1 = document.getElementById("data1");
+let data2 = document.getElementById("data2");
+let data3 = document.getElementById("data3");
+
+let val1 = parseInt(data1.innerText);
+let val2 = parseInt(data2.innerText);
+let val3 = parseInt(data3.innerText);
 var ctx = document.getElementById('chart5').getContext('2d');
 
 var gradientStroke1 = ctx.createLinearGradient(0, 0, 0, 300);
@@ -391,9 +397,9 @@ var gradientStroke3 = ctx.createLinearGradient(0, 0, 0, 300);
 var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
-        labels: ['Desktop', 'Mobile', 'Tablet'],
+        labels: ['Shortlisted', 'Offered', 'Joined'],
         datasets: [{
-            data: [155, 120, 110],
+            data: [val1, val2, val3],
             backgroundColor: [
                 gradientStroke1,
                 gradientStroke2,
@@ -404,7 +410,7 @@ var myChart = new Chart(ctx, {
     },
     options: {
         maintainAspectRatio: false,
-        cutout: 110,
+        cutout: 100,
         plugins: {
         legend: {
             display: false,
@@ -413,8 +419,6 @@ var myChart = new Chart(ctx, {
         
     }
 });
-
-
 
   // chart6
   var ctx = document.getElementById('chart6').getContext('2d');

@@ -1,6 +1,5 @@
 <?php
-session_start();
-error_reporting(0);
+session_start(); 
 
 // Check if the user is not authenticated, redirect them to the login page
 if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
@@ -8,8 +7,73 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     exit();
 }
 
-?>
+$server = "153.92.6.103";
+$user = "u923315908_revisewithmeU";
+$password = "Bh@rat$2023#";
+$database = "u923315908_revisewithmeDB";
+$conn = new mysqli($server, $user, $password, $database);
 
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$username = $_SESSION['logined_user'];
+
+$query = "
+    SELECT
+        COUNT(*) AS total_candidates,
+        SUM(CASE WHEN interview_status = 'Offered' THEN 1 ELSE 0 END) AS total_offered,
+        SUM(CASE WHEN interview_scheduled = 'interview_scheduled' THEN 1 ELSE 0 END) AS total_scheduled,
+        SUM(CASE WHEN current_status = 'Joined-Active' THEN 1 ELSE 0 END) AS total_joined_active,
+        SUM(CASE WHEN current_status = 'Joined-InActive' THEN 1 ELSE 0 END) AS total_joined_inactive
+    FROM
+        candidate_details
+";
+
+$result = $conn->query($query);
+
+if ($result && $row = $result->fetch_assoc()) {
+    $total_candidates = $row['total_candidates'];
+    $total_offered = $row['total_offered'];
+    $total_scheduled = $row['total_scheduled'];
+    $total_joined_active = $row['total_joined_active'];
+    $total_joined_inactive = $row['total_joined_inactive'];
+} else {
+    $total_candidates = 0;
+    $total_offered = 0;
+    $total_scheduled = 0;
+    $total_joined_active = 0;
+    $total_joined_inactive = 0;
+}
+ 
+$q1 = "SELECT * FROM candidate_details WHERE interview_scheduled='interview_scheduled'";
+$result = $conn->query($q1);
+
+if ($result) {
+    // Get the number of rows returned by the query
+    $interviewScheduleTotal  = $result->num_rows;
+}
+
+$q2 = "SELECT * FROM candidate_details WHERE interview_status='offered'";
+$result2 = $conn->query($q2);
+
+if ($result2) {
+    // Get the number of rows returned by the query
+    $total_offered_candidates = $result2->num_rows;
+}
+
+$q3 = "SELECT * FROM candidate_details WHERE current_status='Joined-Active' OR current_status='Joined-Inactive' OR interview_status='Absconding'  OR interview_status='Resigned' OR interview_status='Terminated' ";
+$send = $conn->query($q3);
+
+$result3 = $conn->query($q3);
+
+if ($result3) {
+    // Get the number of rows returned by the query
+    $total_joined_candidates = $result3->num_rows;
+}
+?>
+ 
+ 
 <!doctype html>
 <html lang="en" class="">
 
@@ -110,7 +174,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                 </div>
                                 <div class="main-box-bottom">
                                     <div class="total-counting">
-                                        <h4>150</h4>
+                                        <h4><?php echo $total_candidates  ?></h4>
                                         <span class="badge-status red">2%</span>
                                     </div>
                                 </div>
@@ -129,7 +193,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                 </div>
                                 <div class="main-box-bottom">
                                     <div class="total-counting">
-                                        <h4>480</h4>
+                                        <h4><?php echo $total_scheduled  ?></h4>
                                         <div class="box-badge">
                                             <span class="badge-status blue">11%</span>
                                         </div>
@@ -150,7 +214,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                 </div>
                                 <div class="main-box-bottom">
                                     <div class="total-counting">
-                                        <h4>320</h4>
+                                        <h4><?php echo $total_offered  ?></h4>
                                         <span class="badge-status red">7%</span>
                                     </div>
                                 </div>
@@ -169,7 +233,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                 </div>
                                 <div class="main-box-bottom">
                                     <div class="total-counting">
-                                        <h4>480</h4>
+                                        <h4><?php echo $total_joined_active  ?></h4>
                                         <span class="badge-status blue">18%</span>
                                     </div>
                                 </div>
@@ -188,7 +252,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                 </div>
                                 <div class="main-box-bottom">
                                     <div class="total-counting">
-                                        <h4>480</h4>
+                                        <h4><?php echo $total_joined_inactive ?></h4>
                                         <div class="box-badge">
                                             <span class="badge-status red">2%</span>
                                         </div>
@@ -211,109 +275,150 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                         <li><span class="interview"></span> Interview</li>
                                         <li style="color:#b3ef42"><span class="offer"></span> Offered</li>
                                     </ul>
-                                    <ion-icon name="ellipsis-horizontal-sharp" role="img" class="md hydrated"
-                                        aria-label="ellipsis horizontal sharp"></ion-icon>
+                                    <ion-icon name="ellipsis-horizontal-sharp" role="img" class="md hydrated" aria-label="ellipsis horizontal sharp"></ion-icon>
                                 </div>
                                 <div class="chart-container7">
-                                   <canvas id="performanceChart"></canvas>
+                                    <canvas id="performanceChart"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
+
                     <div class="col-12 col-lg-4 col-xl-4 d-flex">
                         <div class="card radius-10 overflow-hidden w-100">
                             <div class="card-body">
+                                <!-- i want to show the candidate name and interview time of those candidates those interview shedules today i have 5 fields for different round round1_interview_date round2_interview_date round3_interview_date round4_interview_date round5_interview_date -->
                                 <div class="interview-box">
                                     <div class="interview-title d-flex ">
-                                        <h6>Today's Interviews</h6>
-                                        <ion-icon name="ellipsis-horizontal-sharp" role="img" class="md hydrated"
-                                            aria-label="ellipsis horizontal sharp"></ion-icon>
+                                        <h6>Today's Interviews </h6>
+                                        <ion-icon name="ellipsis-horizontal-sharp" role="img" class="md hydrated" aria-label="ellipsis horizontal sharp"></ion-icon>
                                     </div>
-                                    <div class="interview-timing-content">
-                                        <div class="left-interview-content">
-                                            <span class="intv-cercle"></span>
-                                            <div class="candidate-name">
-                                                <h6>Jane Cooper</h6>
-                                                <span>Sales Advisor</span>
+
+                                    <?php
+                                    $query1 = "SELECT * FROM candidate_details WHERE  round1_interview_date = CURRENT_DATE OR
+                                    round2_interview_date = CURRENT_DATE OR
+                                    round3_interview_date = CURRENT_DATE OR
+                                    round4_interview_date = CURRENT_DATE OR
+                                    round5_interview_date = CURRENT_DATE ";
+                                    $send2 = $conn->query($query1);
+                                    $currentDate = date("Y-m-d");
+
+                                    if ($send2->num_rows > 0) {
+                                        while ($data = $send2->fetch_assoc()) {
+                                    ?>
+
+                                            <div class="interview-timing-content">
+                                                <div class="left-interview-content">
+                                                    <span class="intv-cercle"></span>
+                                                    <div class="candidate-name">
+                                                        <h6><?php echo $data['first_name']; ?></h6>
+                                                        <!-- <span>Sales Advisor</span> -->
+                                                    </div>
+                                                </div>
+
+                                                <div class="left-interview-content">
+                                                    <span class="interview-badge ontime ">
+                                                        <?php
+                                                        //echo $data['round1_interview_date'];  
+                                                        if ($data['round1_interview_date'] == $currentDate) {
+                                                            echo "ROUND1";
+                                                        } else if ($data['round2_interview_date'] == $currentDate) {
+                                                            $interviewTime = date('h:i A', strtotime($data['round2_interview_time']));
+                                                            echo  "ROUND2";
+                                                        } else if ($data['round3_interview_date'] == $currentDate) {
+                                                            $interviewTime = date('h:i A', strtotime($data['round3_interview_time']));
+                                                            echo  "ROUND3";
+                                                        } else if ($data['round4_interview_date'] == $currentDate) {
+                                                            $interviewTime = date('h:i A', strtotime($data['round4_interview_time']));
+                                                            echo  "ROUND4";
+                                                        } else if ($data['round5_interview_date'] == $currentDate) {
+                                                            $interviewTime = date('h:i A', strtotime($data['round5_interview_time']));
+                                                            echo  "ROUND5";
+                                                        }
+                                                        ?>
+                                                    </span>
+                                                </div>
+
+                                                <div class="right-interview-content">
+                                                    <span class="interview-badge ontime ">
+                                                        <?php
+                                                        //echo $data['round1_interview_date'];  
+                                                        if ($data['round1_interview_date'] == $currentDate) {
+                                                            $interviewTime = date('h:i A', strtotime($data['round1_interview_time']));
+                                                            echo $interviewTime;
+                                                        } else if ($data['round2_interview_date'] == $currentDate) {
+                                                            $interviewTime = date('h:i A', strtotime($data['round2_interview_time']));
+                                                            echo  $interviewTime;
+                                                        } else if ($data['round3_interview_date'] == $currentDate) {
+                                                            $interviewTime = date('h:i A', strtotime($data['round3_interview_time']));
+                                                            echo  $interviewTime;
+                                                        } else if ($data['round4_interview_date'] == $currentDate) {
+                                                            $interviewTime = date('h:i A', strtotime($data['round4_interview_time']));
+                                                            echo  $interviewTime;
+                                                        } else if ($data['round5_interview_date'] == $currentDate) {
+                                                            $interviewTime = date('h:i A', strtotime($data['round5_interview_time']));
+                                                            echo  $interviewTime;
+                                                        }
+                                                        ?>
+                                                    </span>
+                                                    <!-- You can modify the above line based on the round -->
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="right-interview-content">
-                                            <span class="interview-badge ontime">HH:MM</span>
-                                        </div>
-                                    </div>
-                                    <div class="interview-timing-content">
-                                        <div class="left-interview-content">
-                                            <span class="intv-cercle"></span>
-                                            <div class="candidate-name">
-                                                <h6>Jane Cooper</h6>
-                                                <span>Sales Advisor</span>
-                                            </div>
-                                        </div>
-                                        <div class="right-interview-content">
-                                            <span class="interview-badge late">Late</span>
-                                        </div>
-                                    </div>
-                                    <div class="interview-timing-content">
-                                        <div class="left-interview-content">
-                                            <span class="intv-cercle"></span>
-                                            <div class="candidate-name">
-                                                <h6>Jane Cooper</h6>
-                                                <span>Sales Advisor</span>
-                                            </div>
-                                        </div>
-                                        <div class="right-interview-content">
-                                            <span class="interview-badge ontime">Present</span>
-                                        </div>
-                                    </div>
-                                    <div class="interview-timing-content">
-                                        <div class="left-interview-content">
-                                            <span class="intv-cercle"></span>
-                                            <div class="candidate-name">
-                                                <h6>Jane Cooper</h6>
-                                                <span>Sales Advisor</span>
-                                            </div>
-                                        </div>
-                                        <div class="right-interview-content">
-                                            <span class="interview-badge late">Late</span>
-                                        </div>
-                                    </div>
+                                    <?php
+                                        }
+                                    } else {
+                                        echo "Query Error";
+                                        exit;
+                                    }
+                                    ?>
+
                                 </div>
                             </div>
                         </div>
                     </div>
+ 
+
                 </div>
                 <div class="row">
                     <div class="col-12 col-lg-4 col-xl-4 d-flex">
                         <div class="card radius-10 overflow-hidden w-100">
                             <div class="card-body">
                                 <div class="interview-title d-flex ">
-                                    <h6>Applicant Statistics</h6>
-                                    <ion-icon name="ellipsis-horizontal-sharp" role="img" class="md hydrated"
-                                        aria-label="ellipsis horizontal sharp"></ion-icon>
+                                    <!-- <h6>Applicant Statistics</h6> -->
+                                    <h6>My Candidates</h6>
+                                    <ion-icon name="ellipsis-horizontal-sharp" role="img" class="md hydrated" aria-label="ellipsis horizontal sharp"></ion-icon>
                                 </div>
                                 <div class="chart-container6">
                                     <div class="piechart-legend">
                                         <h2 class="mb-1">130</h2>
                                         <h6 class="mb-0">Applicant</h6>
                                     </div>
+                                    <p id="data1" class="d-none"><?php echo $interviewScheduleTotal;   ?></p>
+                                    <p id="data2" class="d-none"><?php echo  $total_offered_candidates;   ?></p>
+                                    <p id="data3" class="d-none"><?php echo $total_joined_candidates;  ?></p>
                                     <canvas id="chart5" width="450px"></canvas>
                                 </div>
                             </div>
                             <ul class="applicant-chart-status">
-                                <li><span class="screen"></span> Screen</li>
-                                <li><span class="interview"></span> Interview</li>
-                                <li><span class="onboard"></span> Onboard</li>
+                                <li><span class="screen"></span> Shortlisted</li>
+                                <li><span class="interview"></span> Offered</li>
+                                <li><span class="onboard"></span> Joined</li>
                             </ul>
                         </div>
                     </div>
+                   <?php
+                    $sql34 = "SELECT * FROM candidate_details WHERE interview_scheduled ='interview_scheduled' ";
+                    $send = $conn->query($sql34); ?>
+
                     <div class="col-12 col-lg-8 col-xl-8 d-flex">
-                        <div class="card radius-10 overflow-hidden w-100">
+                        <div class="card radius-10">
                             <div class="card-body">
                                 <div class="interview-box">
                                     <div class="interview-title d-flex ">
                                         <h6>Candidate List</h6>
-                                        <ion-icon name="ellipsis-horizontal-sharp" role="img" class="md hydrated"
-                                            aria-label="ellipsis horizontal sharp"></ion-icon>
+                                        <ion-icon name="ellipsis-horizontal-sharp" role="img" class="md hydrated" aria-label="ellipsis horizontal sharp"></ion-icon>
                                     </div>
                                     <div class="custom-table">
                                         <table class="comman-table">
@@ -326,57 +431,38 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                                     <th width="15%">Job Applied</th>
                                                 </tr>
                                             </thead>
-                                            <tr>
-                                                <td>
-                                                    <div class="c-cercle d-flex">
-                                                        <span></span>
-                                                        <div class="table-name">Jaydon Siphron</div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="table-badge offer">Offer</div>
-                                                </td>
-                                                <td>08/22/2024</td>
-                                                <td>
-                                                    <span class=""><i class="fa-regular fa-file file-icon"></i>
-                                                        resume.pdf</span>
-                                                </td>
-                                                <td><span class="designation">UI Design</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="c-cercle d-flex">
-                                                        <span></span>
-                                                        <div class="table-name">Syaiful Rijal</div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="table-badge interview">Interview</div>
-                                                </td>
-                                                <td>08/22/2024</td>
-                                                <td>
-                                                    <span class=""><i class="fa-regular fa-file file-icon"></i>
-                                                        resume.pdf</span>
-                                                </td>
-                                                <td><span class="designation">UX Research</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="c-cercle d-flex">
-                                                        <span></span>
-                                                        <div class="table-name">Jane Cooper</div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="table-badge screen">Screen</div>
-                                                </td>
-                                                <td>08/22/2024</td>
-                                                <td>
-                                                    <span class=""><i class="fa-regular fa-file file-icon"></i>
-                                                        resume.pdf</span>
-                                                </td>
-                                                <td><span class="designation">Product Design</span></td>
-                                            </tr>
+
+                                            <?php
+                                            if ($send->num_rows > 0) {
+                                                while ($data = $send->fetch_assoc()) {
+                                            ?>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="c-cercle d-flex">
+                                                                <span></span>
+                                                                <div class="table-name"><?php echo $data['first_name']; ?></div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="table-badge offer"><?php echo $data['interview_status']; ?></div>
+                                                        </td>
+                                                        <td><?php echo $data['date']; ?></td>
+                                                        <td>
+                                                            <span class=""><i class="fa-regular fa-file file-icon"></i>
+                                                                resume.pdf</span>
+                                                        </td>
+                                                        <td><span class="designation"><?php echo $data['applied_job_position']; ?></span></td>
+                                                    </tr>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
                                         </table>
                                     </div>
                                 </div>
@@ -403,7 +489,6 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
             </div>
             <!-- end page content-->
         </div>
-        <!--end page content wrapper-->
 
 
         <!--start footer-->
@@ -428,6 +513,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     <!--end wrapper-->
 
 
+
     <!-- JS Files-->
     <script src="assets/js/jquery.min.js"></script>
     <!-- <script src="assets/vendor/simplebar/js/simplebar.min.js"></script> -->
@@ -441,7 +527,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     <script src="assets/vendor/datatable/js/jquery.dataTables.min.js"></script>
     <script src="assets/vendor/datatable/js/dataTables.bootstrap5.min.js"></script>
     <script src="assets/js/table-datatable.js"></script>
- 
+
     <script src="assets/js/dashboard.js"></script>
     <!-- Main JS-->
     <script src="assets/js/main.js"></script>

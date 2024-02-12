@@ -7,8 +7,6 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     header("location: index.php"); // Adjust the login page URL as needed
     exit();
 }
-
-
 $server = "153.92.6.103";
 $user = "u923315908_revisewithmeU";
 $password = "Bh@rat$2023#";

@@ -94,17 +94,19 @@
                         <div class="menu-title">My Hires</div>
                     </a>
                     <ul>
-                        <li> <a href="create-meeting.html"><ion-icon name="ellipse-outline"></ion-icon>Offered</a>
+                        <li> <a href="../offered.php"><ion-icon name="ellipse-outline"></ion-icon>Offered</a>
                         </li>
-                        <li> <a href="my-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Training & Induction</a>
+                        <li> <a href="../training-and-induction.php"><ion-icon name="ellipse-outline"></ion-icon>Training & Induction</a>
                         </li>
-                        <li> <a href="all-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Joind - Active</a>
+                        <li> <a href="../joined-active.php"><ion-icon name="ellipse-outline"></ion-icon>Joind - Active</a>
                         </li>
-                        <li> <a href="create-meeting.html"><ion-icon name="ellipse-outline"></ion-icon>Joind - InActive</a>
+                        <li> <a href="../joined-inactive.php"><ion-icon name="ellipse-outline"></ion-icon>Joind - InActive</a>
                         </li>
-                        <li> <a href="my-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Abscoding</a>
+                        <li> <a href="../abscoding.php"><ion-icon name="ellipse-outline"></ion-icon>Abscoding</a>
                         </li>
-                        <li> <a href="all-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Resigned</a>
+                        <li> <a href="../resigned.php"><ion-icon name="ellipse-outline"></ion-icon>Resigned</a>
+                        </li>
+                        <li> <a href="../terminated.php"><ion-icon name="ellipse-outline"></ion-icon>Resigned</a>
                         </li>
                     </ul>
                 </li>
