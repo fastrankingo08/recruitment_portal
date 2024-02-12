@@ -998,7 +998,6 @@ if (isset($_GET['id'])) {
                             <div class="row">
                                 <div class="card">
                                     <div class="card-body">
-
                                         <div class="p-5 radius-10" style="background-color: #3F4246;">
                                             <div class="card-title text-center mx-auto">
                                                 <h1 class="text-white">ROUND 5</h1>
@@ -1012,7 +1011,6 @@ if (isset($_GET['id'])) {
                                                 </div>
                                             </div>
                                         </div>
-
 
                                         <div class="row">
                                             <div class="col-md-9 p-5 text-center mx-auto">
@@ -1111,6 +1109,7 @@ if (isset($_GET['id'])) {
                                                                         <option value="Joined-Inactive">Joined-Inactive</option>
                                                                         <option value="Absconding">Absconding</option>
                                                                         <option value="Resigned">Resigned</option>
+                                                                        <option value="Terminated">Terminated</option>
                                                                     </select>
                                                                 </div>
 

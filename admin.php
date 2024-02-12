@@ -142,40 +142,12 @@ $conn->close();
                 </li>
 
                 <li>
-                    <a href="my-candidates.php">
+                    <a href="candidates-created-by-me.php">
                         <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
                         </div>
                         <div class="menu-title">My Candidates</div>
                     </a>
                 </li>
-
-                <li>
-                    <a href="shortlisted-candidates.php">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
-                        </div>
-                        <div class="menu-title">Shortlisted/Scheduled Candidates</div>
-                    </a>
-                </li>
-
-
-                <!-- My Interview -->
-                <li>
-                    <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><ion-icon name="mail-outline"></ion-icon>
-                        </div>
-                        <div class="menu-title">My Interviews</div>
-                    </a>
-                    <ul>
-                        <li><a href="create-mail-form.html"><ion-icon name="ellipse-outline"></ion-icon>Scheduled</a>
-                        </li>
-                        <li><a href="my-mail-form.html"><ion-icon name="ellipse-outline"></ion-icon>Conducted</a>
-                        </li>
-                        <li><a href="all-mail-form.html"><ion-icon name="ellipse-outline"></ion-icon>Not Conducted</a>
-                        </li>
-
-                    </ul>
-                </li>
-
                 <li>
                     <a class="has-arrow" href="javascript:;">
                         <div class="parent-icon"><i class="fadeIn animated bx bx-calendar-plus"></i>
@@ -198,18 +170,43 @@ $conn->close();
                     </ul>
                 </li>
 
+
+                <li>
+                    <a href="shortlisted-candidates.php">
+                        <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
+                        </div>
+                        <div class="menu-title">Shortlisted/Scheduled Candidates</div>
+                    </a>
+                </li> 
+
+                <!-- My Interview -->
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><ion-icon name="mail-outline"></ion-icon>
+                        </div>
+                        <div class="menu-title">My Interviews</div>
+                    </a>
+                    <ul>
+                        <li><a href="create-mail-form.html"><ion-icon name="ellipse-outline"></ion-icon>Scheduled</a>
+                        </li>
+                        <li><a href="my-mail-form.html"><ion-icon name="ellipse-outline"></ion-icon>Conducted</a>
+                        </li>
+                        <li><a href="all-mail-form.html"><ion-icon name="ellipse-outline"></ion-icon>Not Conducted</a>
+                        </li>
+                    </ul>
+                </li> 
+
                 <li>
                     <a class="has-arrow" href="javascript:;">
                         <div class="parent-icon"><i class="fadeIn animated bx bx-bell-plus"></i>
                         </div>
-                        <div class="menu-title">Notifications </div>
+                        <div class="menu-title">Notifications</div>
                     </a>
                     <ul>
                         <li> <a href="todays-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Today's Meeting</a>
                         </li>
                         <li> <a href="todays-followup.html"><ion-icon name="ellipse-outline"></ion-icon>Today's Follow Up</a>
                         </li>
-
                     </ul>
                 </li>
 
@@ -456,7 +453,7 @@ $conn->close();
                                 <div class="d-flex align-items-center gap-2">
                                     <div class="fs-5"><ion-icon name="heart-outline"></ion-icon></div>
                                     <div>
-                                        <p class="mb-0">Total Sceduled</p>
+                                        <p class="mb-0">Total Scheduled</p>
                                     </div>
                                     <div class="fs-5 ms-auto"><ion-icon name="ellipsis-horizontal-sharp"></ion-icon></div>
                                 </div>
@@ -1267,7 +1264,6 @@ $conn->close();
     <script src="assets/js/dashboard.js"></script>
     <!-- Main JS-->
     <script src="assets/js/main.js"></script>
-
 
 </body>
 

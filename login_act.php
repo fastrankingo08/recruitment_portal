@@ -28,7 +28,6 @@ if (!$conn) {
             $_SESSION['user_type'] = "user";
 
             // $_SESSION['logined_email'] = $userEmail;
-
             header("location:hr_Dashboard.php");
             exit();
         } else if ($row['type'] == 'admin' && $row['status'] == 'Active') {

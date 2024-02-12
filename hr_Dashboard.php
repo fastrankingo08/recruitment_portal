@@ -15,11 +15,11 @@ $database = "u923315908_revisewithmeDB";
 $conn = new mysqli($server, $user, $password, $database);
 
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+  die("Connection failed: " . $conn->connect_error);
 }
 
 $username = $_SESSION['logined_user'];
- 
+
 $query = "
     SELECT
         COUNT(*) AS total_candidates,
@@ -36,17 +36,17 @@ $query = "
 $result = $conn->query($query);
 
 if ($result && $row = $result->fetch_assoc()) {
-    $total_candidates = $row['total_candidates'];
-    $total_offered = $row['total_offered'];
-    $total_scheduled = $row['total_scheduled'];
-    $total_joined_active = $row['total_joined_active'];
-    $total_joined_inactive = $row['total_joined_inactive'];
+  $total_candidates = $row['total_candidates'];
+  $total_offered = $row['total_offered'];
+  $total_scheduled = $row['total_scheduled'];
+  $total_joined_active = $row['total_joined_active'];
+  $total_joined_inactive = $row['total_joined_inactive'];
 } else {
-    $total_candidates = 0;
-    $total_offered = 0;
-    $total_scheduled = 0;
-    $total_joined_active = 0;
-    $total_joined_inactive = 0;
+  $total_candidates = 0;
+  $total_offered = 0;
+  $total_scheduled = 0;
+  $total_joined_active = 0;
+  $total_joined_inactive = 0;
 }
 
 $conn->close();
@@ -155,17 +155,19 @@ $conn->close();
             <div class="menu-title">My Hires</div>
           </a>
           <ul>
-            <li> <a href="create-meeting.html"><ion-icon name="ellipse-outline"></ion-icon>Offered</a>
+            <li> <a href="offered.php"><ion-icon name="ellipse-outline"></ion-icon>Offered</a>
             </li>
-            <li> <a href="my-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Training & Induction</a>
+            <li> <a href="training-and-induction.php"><ion-icon name="ellipse-outline"></ion-icon>Training & Induction</a>
             </li>
-            <li> <a href="all-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Joind - Active</a>
+            <li> <a href="joined-active.php"><ion-icon name="ellipse-outline"></ion-icon>Joind - Active</a>
             </li>
-            <li> <a href="create-meeting.html"><ion-icon name="ellipse-outline"></ion-icon>Joind - InActive</a>
+            <li> <a href="joined-inactive.php"><ion-icon name="ellipse-outline"></ion-icon>Joind - InActive</a>
             </li>
-            <li> <a href="my-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Abscoding</a>
+            <li> <a href="abscoding.php"><ion-icon name="ellipse-outline"></ion-icon>Abscoding</a>
             </li>
-            <li> <a href="all-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Resigned</a>
+            <li> <a href="resigned.php"><ion-icon name="ellipse-outline"></ion-icon>Resigned</a>
+            </li>
+            <li> <a href="terminated.php"><ion-icon name="ellipse-outline"></ion-icon>Resigned</a>
             </li>
           </ul>
         </li>
@@ -405,7 +407,7 @@ $conn->close();
             </div> -->
         </div>
         <!--end breadcrumb-->
-        
+
         <!-- Start Team Meeting Data Section -->
         <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4">
           <div class="col">
@@ -468,7 +470,7 @@ $conn->close();
             </div>
           </div>
 
-           
+
           <div class="col">
             <div class="card radius-10">
               <div class="card-body">
@@ -508,7 +510,7 @@ $conn->close();
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
         </div><!--end row-->
         <!-- End Team Meeting Data Section -->
 
@@ -518,7 +520,7 @@ $conn->close();
               <div class="card-body">
                 <div class="d-flex align-items-start justify-content-between">
                   <div>
-                    <p class="mb-2">Total Joind InActive  </p>
+                    <p class="mb-2">Total Joind InActive </p>
                     <h4 class="mb-0"><?php echo $total_joind_in_active; ?> <span class="ms-1 font-13 text-success">+36%</span></h4>
                   </div>
                   <div class="fs-5">
@@ -529,7 +531,7 @@ $conn->close();
               </div>
             </div>
           </div>
-          
+
           <div class="col-12 col-lg-4 col-xl-4">
             <div class="card radius-10">
               <div class="card-body">
