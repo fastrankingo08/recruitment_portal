@@ -215,7 +215,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                         aria-label="ellipsis horizontal sharp"></ion-icon>
                                 </div>
                                 <div class="chart-container7">
-                                    <canvas id="chart7"></canvas>
+                                   <canvas id="performanceChart"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -437,10 +437,11 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     <!--plugins-->
     <script src="assets/vendor/perfect-scrollbar/js/perfect-scrollbar.js"></script>
     <script src="assets/vendor/chartjs/chart.min.js"></script>
-    <script src="assets/vendor/apexcharts-bundle/js/apexcharts.min.js"></script>
+    <!-- <script src="assets/vendor/apexcharts-bundle/js/apexcharts.min.js"></script> -->
     <script src="assets/vendor/datatable/js/jquery.dataTables.min.js"></script>
     <script src="assets/vendor/datatable/js/dataTables.bootstrap5.min.js"></script>
     <script src="assets/js/table-datatable.js"></script>
+ 
     <script src="assets/js/dashboard.js"></script>
     <!-- Main JS-->
     <script src="assets/js/main.js"></script>

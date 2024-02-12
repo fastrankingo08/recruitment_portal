@@ -307,7 +307,7 @@ ion-icon {
 @media screen and (min-width: 1400px) {
 
     .wrapper.toggled .page-content-wrapper {
-        padding: 0 9rem 2em 9rem;
+        /* padding: 0 9rem 2em 9rem; */
     }
 }
 
@@ -1510,6 +1510,17 @@ ul.categories-list li {
 .box-top-detail h6{
     font-size: 20px;
     color: var(--blueColor);
+    width: 79px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.box-top-detail h6:hover{
+    background: #001687;
+    color: #fff;
+    
 }
 .main-box-bottom{
     margin-top: 1rem;
@@ -1600,6 +1611,9 @@ ul.categories-list li {
 }
 table.dataTable{
     background: #fff !important;
+}
+.custom-table{
+  overflow-x: auto;
 }
 .custom-table .comman-table{
     width: 100%;
@@ -1759,6 +1773,8 @@ table.dataTable{
     border-radius: 20px;
     padding: 0 32px;
     outline: none;
+    max-width: 600px;
+    width: 600px;
  }
 @media screen and (max-width:620px) {
 	.top-header .navbar .dropdown-menu::after {
@@ -1778,4 +1794,11 @@ table.dataTable{
     .box-grid{
         grid-template-columns: auto;
     }
+    .admin-name {
+        display: none;
+    }
+    .admin-search input{
+        width: 100%;
+    }
 }
+
