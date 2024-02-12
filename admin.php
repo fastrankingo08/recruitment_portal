@@ -437,7 +437,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     <!--plugins-->
     <script src="assets/vendor/perfect-scrollbar/js/perfect-scrollbar.js"></script>
     <script src="assets/vendor/chartjs/chart.min.js"></script>
-    <!-- <script src="assets/vendor/apexcharts-bundle/js/apexcharts.min.js"></script> -->
+    <script src="assets/vendor/apexcharts-bundle/js/apexcharts.min.js"></script>
     <script src="assets/vendor/datatable/js/jquery.dataTables.min.js"></script>
     <script src="assets/vendor/datatable/js/dataTables.bootstrap5.min.js"></script>
     <script src="assets/js/table-datatable.js"></script>
