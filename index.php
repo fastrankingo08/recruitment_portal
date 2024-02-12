@@ -36,7 +36,7 @@
               <div class="card-body">
                 <div class="text-center">
                   <div>
-                    <img src="assets/images/logo.png" class="logo-icon" alt="Fastranking Logo">
+                    <img src="assets/images/logo.webp" class="logo-icon" alt="Fastranking Logo">
                   </div>
                   <!-- <h4>Sign In</h4> -->
                   <p>Sign In to your account</p>
