@@ -111,7 +111,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                 <div class="main-box-bottom">
                                     <div class="total-counting">
                                         <h4>150</h4>
-                                        <span class="badge-status red">2%</span>
+                                        <span class="badge-status red d-none">2%</span>
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                     <div class="total-counting">
                                         <h4>480</h4>
                                         <div class="box-badge">
-                                            <span class="badge-status blue">11%</span>
+                                            <span class="badge-status blue d-none">11%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -151,7 +151,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                 <div class="main-box-bottom">
                                     <div class="total-counting">
                                         <h4>320</h4>
-                                        <span class="badge-status red">7%</span>
+                                        <span class="badge-status red d-none">7%</span>
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +170,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                 <div class="main-box-bottom">
                                     <div class="total-counting">
                                         <h4>480</h4>
-                                        <span class="badge-status blue">18%</span>
+                                        <span class="badge-status blue d-none">18%</span>
                                     </div>
                                 </div>
                             </div>
@@ -190,7 +190,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                     <div class="total-counting">
                                         <h4>480</h4>
                                         <div class="box-badge">
-                                            <span class="badge-status red">2%</span>
+                                            <span class="badge-status red d-none">2%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -214,8 +214,8 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                     <ion-icon name="ellipsis-horizontal-sharp" role="img" class="md hydrated"
                                         aria-label="ellipsis horizontal sharp"></ion-icon>
                                 </div>
-                                <div class="chart-container7">
-                                   <canvas id="performanceChart"></canvas>
+                                <div class="chart-container7ss">
+                                   <div id="perFormance"></div>
                                 </div>
                             </div>
                         </div>
@@ -441,11 +441,76 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     <script src="assets/vendor/datatable/js/jquery.dataTables.min.js"></script>
     <script src="assets/vendor/datatable/js/dataTables.bootstrap5.min.js"></script>
     <script src="assets/js/table-datatable.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
  
     <script src="assets/js/dashboard.js"></script>
     <!-- Main JS-->
     <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Options for the chart
+        var options = {
+            series: [
+            {
+                name: "On Time",
+                data: [28, 16, 33, 36, 40, 20, 33,20,20,45]
+            },
+            {
+                name: "On Late",
+                data: [12, 30, 14, 18, 30, 13, 13,32,16,25]
+            }],
+            chart: {
+                height: 260,
+                type: 'line',
+                dropShadow: {
+                    enabled: true,
+                    color: '#000',
+                    top: 18,
+                    left: 7,
+                    blur: 10,
+                    opacity: 0.2
+                },
+                toolbar: {
+                    show: false
+                }
+            },
+            colors: ['#001687', '#b3ef42'],
+            dataLabels: {
+                enabled: true,
+            },
+            stroke: {
+                curve: 'smooth',
+                
+            },
+         
+            grid: {
+                borderColor: '#e7e7e7',
+                row: {
+                    colors: ['#f3f3f3', 'transparent'],
+                    opacity: 0.5
+                },
+            },
+            markers: {
+                size: 1
+            },
+            xaxis: {
+                categories: ['10am', '11am', '12am', '01am', '02pm', '03pm', '04pm','05pm','06pm','07pm'],
+                },
+         
+            legend: {
+                position: 'top',
+                horizontalAlign: 'right',
+                floating: true,
+                offsetY: -25,
+                offsetX: -5
+            }
+        };
 
+        // Initialize the chart
+        var chart = new ApexCharts(document.querySelector("#perFormance"), options);
+        chart.render();
+    });
+  </script>
 
 </body>
 

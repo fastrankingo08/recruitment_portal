@@ -35,288 +35,11 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     <!--start wrapper-->
     <div class="wrapper">
         <!--start sidebar -->
-        <aside class="sidebar-wrapper" data-simplebar="true">
-            <div class="sidebar-header">
-                <div>
-                    <img src="assets/images/logo.png" class="logo-icon" alt="Fastranking Logo">
-                </div>
-                <div>
-                <h4 class="logo-text">FR-CRM  </h4>
-
-                    
-                </div>
-                <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
-                </div>
-            </div>
-            <!--navigation-->
-            <ul class="metismenu" id="menu">
-
-                <!-- Dashboard -->
-                <li>
-                    <a href="dashboard.html">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-home-alt"></i>
-                        </div>
-                        <div class="menu-title">Dashboard</div>
-                    </a>
-                </li>
-                <!-- New Candidate -->
-                <li>
-                    <a class="has-arrow" href="javascript:;">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-calendar-plus"></i>
-                        </div>
-                        <div class="menu-title">New Candidate </div>
-                    </a>
-                    <ul>
-                        <li> <a href="candidate-details.php"><ion-icon name="ellipse-outline"></ion-icon>New Candidate</a>
-                        </li>
-                    </ul>
-                </li>
- 
-
-
-                <!-- My Candidate -->
-                <li>
-                    <a href="my-candidates.php">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
-                        </div>
-                        <div class="menu-title">My Candidates</div>
-                    </a>
-                </li>
-
-                <!-- My Interview -->
-                <li>
-                    <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><ion-icon name="mail-outline"></ion-icon>
-                        </div>
-                        <div class="menu-title">My Interviews</div>
-                    </a>
-                    <ul>
-                        <li><a href="create-mail-form.html"><ion-icon name="ellipse-outline"></ion-icon>Scheduled</a>
-                        </li>
-                        <li><a href="my-mail-form.html"><ion-icon name="ellipse-outline"></ion-icon>Conducted</a>
-                        </li>
-                        <li><a href="all-mail-form.html"><ion-icon name="ellipse-outline"></ion-icon>Not Conducted</a>
-                        </li>
-
-                    </ul>
-                </li> 
-
-                <li>
-                    <a class="has-arrow" href="javascript:;">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-calendar-plus"></i>
-                        </div>
-                        <div class="menu-title">My Hires</div>
-                    </a>
-                    <ul>
-                        <li> <a href="create-meeting.html"><ion-icon name="ellipse-outline"></ion-icon>Create Meeting</a>
-                        </li>
-                        <li> <a href="my-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>My Meetings</a>
-                        </li>
-                        <li> <a href="all-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>All Meetings</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a class="has-arrow" href="javascript:;">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-bell-plus"></i>
-                        </div>
-                        <div class="menu-title">Notifications </div>
-                    </a>
-                    <ul>
-                        <li> <a href="todays-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Today's Meeting</a>
-                        </li>
-                        <li> <a href="todays-followup.html"><ion-icon name="ellipse-outline"></ion-icon>Today's Follow Up</a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="meetings-calendar.html">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-calendar"></i>
-                        </div>
-                        <div class="menu-title">Meeting Calendar</div>
-                    </a>
-
-                </li>
-
-            </ul> 
-
-            <!--end navigation-->
-        </aside>
+       <?php include "includes/sidebar.php" ?>
         <!--end sidebar -->
 
         <!--start top header-->
-        <header class="top-header">
-            <nav class="navbar navbar-expand gap-3">
-                <div class="mobile-menu-button"><ion-icon name="menu-sharp"></ion-icon></div>
-                <form class="searchbar">
-                    <div class="position-absolute top-50 translate-middle-y search-icon ms-3"><ion-icon name="search-sharp"></ion-icon></div>
-                    <input class="form-control" type="text" placeholder="Search for anything">
-                    <div class="position-absolute top-50 translate-middle-y search-close-icon"><ion-icon name="close-sharp"></ion-icon></div>
-                </form>
-                <div class="top-navbar-right ms-auto"> 
-                    <ul class="navbar-nav align-items-center">
-                        <li class="nav-item dropdown dropdown-large dropdown-apps">
-                            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                <div class="">
-                                    <ion-icon name="apps-sharp"></ion-icon>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                                <div class="row row-cols-3 g-3 p-3">
-                                    <div class="col text-center">
-                                        <div class="app-box mx-auto bg-gradient-purple text-white"><ion-icon name="cart-sharp"></ion-icon>
-                                        </div>
-                                        <div class="app-title">Sales</div>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div class="app-box mx-auto bg-gradient-info text-white"><ion-icon name="people-sharp"></ion-icon>
-                                        </div>
-                                        <div class="app-title">Teams</div>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div class="app-box mx-auto bg-gradient-success text-white"><ion-icon name="shield-checkmark-sharp"></ion-icon>
-                                        </div>
-                                        <div class="app-title">Tasks</div>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div class="app-box mx-auto bg-gradient-warning text-white"><ion-icon name="file-tray-sharp"></ion-icon>
-                                        </div>
-                                        <div class="app-title">Files</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown dropdown-large">
-                            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                <div class="position-relative">
-                                    <span class="notify-badge">3</span>
-                                    <ion-icon name="notifications-sharp"></ion-icon>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a href="javascript:;">
-                                    <div class="msg-header">
-                                        <p class="msg-header-title">Notifications</p>
-                                        <!-- <p class="msg-header-clear ms-auto">Marks all as read</p> -->
-                                    </div>
-                                </a>
-                                <div class="header-notifications-list">
-                                    <a class="dropdown-item" href="javascript:;">
-                                        <div class="d-flex align-items-center">
-                                            <div class="notify text-primary"><ion-icon name="checkmark-done-outline"></ion-icon>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="msg-name">New Meetings <span class="msg-time float-end">2 min
-                                                        ago</span></h6>
-                                                <p class="msg-info">You have recived new meetings</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item" href="javascript:;">
-                                        <div class="d-flex align-items-center">
-                                            <div class="notify text-danger"><ion-icon name="person-outline"></ion-icon>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="msg-name">New Follow Up<span class="msg-time float-end">14 Sec
-                                                        ago</span></h6>
-                                                <p class="msg-info">5 new follow ups</p>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <a class="dropdown-item" href="javascript:;">
-                                        <div class="d-flex align-items-center">
-                                            <div class="notify text-danger"><ion-icon name="chatbox-ellipses-outline"></ion-icon>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="msg-name">New Comments <span class="msg-time float-end">4 hrs
-                                                        ago</span></h6>
-                                                <p class="msg-info">New customer comments recived</p>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-                                <a href="javascript:;">
-                                    <div class="text-center msg-footer">View All Notifications</div>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown dropdown-user-setting">
-                            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                <div class="user-setting">
-                                    <img src="assets/images/avatars/06.png" class="user-img" alt="">
-                                </div>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <div class="d-flex flex-row align-items-center gap-2">
-                                            <img src="assets/images/avatars/06.png" alt="" class="rounded-circle" width="54" height="54">
-                                            <div class="">
-                                                <h6 class="mb-0 dropdown-user-name"><?php echo $_SESSION['logined_user']; ?></h6>
-                                                <small class="mb-0 dropdown-user-designation text-secondary">User Designation</small>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="pages-user-profile.html">
-                                        <div class="d-flex align-items-center">
-                                            <div class=""><ion-icon name="person-outline"></ion-icon></div>
-                                            <div class="ms-3"><span>Profile</span></div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <div class="d-flex align-items-center">
-                                            <div class=""><ion-icon name="settings-outline"></ion-icon></div>
-                                            <div class="ms-3"><span>Setting</span></div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <div class="d-flex align-items-center">
-                                            <div class=""><ion-icon name="wallet-outline"></ion-icon></div>
-                                            <div class="ms-3"><span>Earnings</span></div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <div class="d-flex align-items-center">
-                                            <div class=""><ion-icon name="cloud-download-outline"></ion-icon></div>
-                                            <div class="ms-3"><span>Downloads</span></div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="index.php">
-                                        <div class="d-flex align-items-center">
-                                            <div class=""><ion-icon name="log-out-outline"></ion-icon></div>
-                                            <div class="ms-3"><span>Logout</span></div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-
-                </div>
-            </nav>
-        </header>
+        <?php include "includes/header.php" ?>
         <!--end top header-->
 
 
@@ -345,7 +68,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
 
 
                 <div class="row">
-                    <div class="col-xl-10 mx-auto">
+                    <div class="col-xl-12 mx-auto">
                         <div class="card">
                             <div class="card-body">
                                 <div class="border p-3 rounded">
@@ -354,7 +77,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                     <form action="candidate-details-action.php" method="post">
                                         <div class="row g-3" id="customer-container">
                                             <!-- starting -->
-                                            <div class="d-grid col-2">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label">Title <span class="error_msg">*</span></label>
                                                 <select class="form-select" name="title">
                                                     <option value="Mr">Mr</option>
@@ -375,7 +98,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                                 <input type="text" class="form-control" name="middlename" placeholder="Middle  Name">
                                             </div>
 
-                                            <div class="d-grid col-4">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label">Last Name<span class="error_msg">*</span></label>
                                                 <input type="text" class="form-control" name="lastname" placeholder="Last Name">
                                             </div>
@@ -406,20 +129,20 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                                 <input type="text" class="form-control" name="mobile" placeholder="Mobile" pattern="(\+91)?[0-9]{10}">
                                             </div>
 
-                                            <div class="d-grid col-6">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label">Primary Email <span class="error_msg">*</span></label>
                                                 <input type="email" class="form-control" name="primary_email" placeholder="Email Id">
                                             </div>
 
-                                            <div class="d-grid col-6">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label">Secondary Email <span class="error_msg">*</span></label>
                                                 <input type="email" class="form-control" name="Secondary_email" placeholder="Email Id">
                                             </div>
 
 
                                             <div class="row mt-3">
-                                                <div class="col-md-6  ">
-                                                    <h6 class="my-3  ">Current Address</h6>
+                                                <div class="col-md-6">
+                                                    <h5 class="my-3">Current Address</h5>
                                                     <br>
                                                     <div class="row">
                                                         <!-- Current Address Fields -->
@@ -451,7 +174,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <h6 class="my-3 text-cenetr mx-auto">Permanent Address</h6>
+                                                    <h5 class="my-3 text-cenetr mx-auto">Permanent Address</h5>
                                                     <div class="row">
                                                         <!-- Permanent Address Fields -->
                                                         <div class="form-check">
@@ -547,8 +270,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                                     <!-- <option selected disabled value="">Select </option> -->
 
                                                     <option value="Fresher">Fresher</option>
-                                                    <option value="Below 6 months">
-                                                        < .5 Year</option>
+                                                    <option value="Below 6 months">  < .5 Year</option>
                                                     <option value="Betwwn 6 to 12 months">.5 - 1 Year</option>
                                                     <option value="1 to 2 Years">1 - 2 Years</option>
                                                     <option value="2 to 3 Years">2 - 3 Years</option>
@@ -558,17 +280,17 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                                 </select>
                                             </div>
 
-                                            <div class="d-grid col-4">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label">Current Salary<span class="error_msg">*</span></label>
                                                 <input type="text" class="form-control" name="current_salary" placeholder="per month">
                                             </div>
 
-                                            <div class="d-grid col-4">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label">Expected Salary<span class="error_msg">*</span></label>
                                                 <input type="text" class="form-control" name="expected_salary" placeholder="per month">
                                             </div>
 
-                                            <div class="d-grid col-4">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label">Last Wroking Location<span class="error_msg">*</span></label>
                                                 <input type="text" class="form-control" name="last_working_location" placeholder="location">
                                             </div>
@@ -577,17 +299,17 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
 
                                             <h5>Interview Details</h5>
 
-                                            <div class="d-grid col-4">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label">Interview Date<span class="error_msg">*</span></label>
                                                 <input type="date" class="form-control" name="interview_date" placeholder="Mobile">
                                             </div>
 
-                                            <div class="d-grid col-4">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label">Interview Time<span class="error_msg">*</span></label>
                                                 <input type="time" class="form-control" name="interview_time" placeholder="Set Interview Time">
                                             </div>
 
-                                            <div class="d-grid col-4">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label">Applied Job Position<span class="error_msg">*</span></label>
                                                 <select class="form-select" name="job_applied_for">
                                                     <!-- <option value="Chief Executive Officer (CEO)">Chief Executive Officer (CEO)</option>
@@ -632,7 +354,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                                                     <option value="Business Analyst">Business Analyst</option> -->
                                                 </select>
                                             </div>
-                                            <div class="d-grid col-4">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label">Interview Status<span class="error_msg">*</span></label>
                                                 <select class="form-select" name="interview_status"> 
                                                     <option value="Screening">Screening</option> 
@@ -643,7 +365,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
 
 
 
-                                            <div class="d-grid col-8">
+                                            <div class="d-grid col-6">
                                                 <label class="form-label">Comment If Any<span class="error_msg">*</span></label>
                                                 <input type="text" class="form-control" name="comment" placeholder="Your Comment">
                                             </div>

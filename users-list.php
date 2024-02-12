@@ -45,318 +45,11 @@ $conn = new mysqli($server, $user, $password, $database);
     <!--start wrapper-->
     <div class="wrapper">
         <!--start sidebar -->
-        <aside class="sidebar-wrapper" data-simplebar="true">
-            <div class="sidebar-header">
-                <div>
-                    <img src="assets/images/logo.png" class="logo-icon" alt="Fastranking Logo">
-                </div>
-                <div>
-                    <h4 class="logo-text">FR-CRM </h4>
-
-
-                </div>
-                <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
-                </div>
-            </div>
-            <!--navigation-->
-            <ul class="metismenu" id="menu">
-
-                <!-- Dashboard -->
-                <li>
-                    <a href="admin.php">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-home-alt"></i>
-                        </div>
-                        <div class="menu-title">Dashboard</div>
-                    </a>
-                </li>
-                <!-- New Candidate -->
-                <li>
-                    <a href="users-list.php">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
-                        </div>
-                        <div class="menu-title">User List</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="create-user.php">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-calendar-plus"></i>
-                        </div>
-                        <div class="menu-title">Create New User</div>
-                    </a>
-
-                </li>
-
-                <li>
-                    <a href="create-candidate.php">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-calendar-plus"></i>
-                        </div>
-                        <div class="menu-title">Create New Candidate</div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="all-candidates.php">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
-                        </div>
-                        <div class="menu-title">See All Candidates</div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="my-candidates.php">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
-                        </div>
-                        <div class="menu-title">My Candidates</div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="shortlisted-candidates.php">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
-                        </div>
-                        <div class="menu-title">Shortlisted/Scheduled Candidates</div>
-                    </a>
-                </li>
-
-
-                <!-- My Interview -->
-                <li>
-                    <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><ion-icon name="mail-outline"></ion-icon>
-                        </div>
-                        <div class="menu-title">My Interviews</div>
-                    </a>
-                    <ul>
-                        <li><a href="create-mail-form.html"><ion-icon name="ellipse-outline"></ion-icon>Scheduled</a>
-                        </li>
-                        <li><a href="my-mail-form.html"><ion-icon name="ellipse-outline"></ion-icon>Conducted</a>
-                        </li>
-                        <li><a href="all-mail-form.html"><ion-icon name="ellipse-outline"></ion-icon>Not Conducted</a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li>
-                    <a class="has-arrow" href="javascript:;">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-calendar-plus"></i>
-                        </div>
-                        <div class="menu-title">My Hires</div>
-                    </a>
-                    <ul>
-                        <li> <a href="create-meeting.html"><ion-icon name="ellipse-outline"></ion-icon>Offered</a>
-                        </li>
-                        <li> <a href="my-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Training & Induction</a>
-                        </li>
-                        <li> <a href="all-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Joind - Active</a>
-                        </li>
-                        <li> <a href="create-meeting.html"><ion-icon name="ellipse-outline"></ion-icon>Joind - InActive</a>
-                        </li>
-                        <li> <a href="my-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Abscoding</a>
-                        </li>
-                        <li> <a href="all-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Resigned</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a class="has-arrow" href="javascript:;">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-bell-plus"></i>
-                        </div>
-                        <div class="menu-title">Notifications </div>
-                    </a>
-                    <ul>
-                        <li> <a href="todays-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Today's Meeting</a>
-                        </li>
-                        <li> <a href="todays-followup.html"><ion-icon name="ellipse-outline"></ion-icon>Today's Follow Up</a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="meetings-calendar.html">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-calendar"></i>
-                        </div>
-                        <div class="menu-title">Meeting Calendar</div>
-                    </a> 
-                </li>
-            </ul>
-
-            <!--end navigation-->
-        </aside>
+        <?php include "includes/sidebar.php" ?>
         <!--end sidebar -->
 
         <!--start top header-->
-        <header class="top-header">
-            <nav class="navbar navbar-expand gap-3">
-                <div class="mobile-menu-button"><ion-icon name="menu-sharp"></ion-icon></div>
-                <form class="searchbar">
-                    <div class="position-absolute top-50 translate-middle-y search-icon ms-3"><ion-icon name="search-sharp"></ion-icon></div>
-                    <input class="form-control" type="text" placeholder="Search for anything">
-                    <div class="position-absolute top-50 translate-middle-y search-close-icon"><ion-icon name="close-sharp"></ion-icon></div>
-                </form>
-                <div class="top-navbar-right ms-auto">
-                    <ul class="navbar-nav align-items-center">
-                        <li class="nav-item dropdown dropdown-large dropdown-apps">
-                            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                <div class="">
-                                    <ion-icon name="apps-sharp"></ion-icon>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                                <div class="row row-cols-3 g-3 p-3">
-                                    <div class="col text-center">
-                                        <div class="app-box mx-auto bg-gradient-purple text-white"><ion-icon name="cart-sharp"></ion-icon>
-                                        </div>
-                                        <div class="app-title">Sales</div>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div class="app-box mx-auto bg-gradient-info text-white"><ion-icon name="people-sharp"></ion-icon>
-                                        </div>
-                                        <div class="app-title">Teams</div>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div class="app-box mx-auto bg-gradient-success text-white"><ion-icon name="shield-checkmark-sharp"></ion-icon>
-                                        </div>
-                                        <div class="app-title">Tasks</div>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div class="app-box mx-auto bg-gradient-warning text-white"><ion-icon name="file-tray-sharp"></ion-icon>
-                                        </div>
-                                        <div class="app-title">Files</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown dropdown-large">
-                            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                <div class="position-relative">
-                                    <span class="notify-badge">3</span>
-                                    <ion-icon name="notifications-sharp"></ion-icon>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a href="javascript:;">
-                                    <div class="msg-header">
-                                        <p class="msg-header-title">Notifications</p>
-                                        <!-- <p class="msg-header-clear ms-auto">Marks all as read</p> -->
-                                    </div>
-                                </a>
-                                <div class="header-notifications-list">
-                                    <a class="dropdown-item" href="javascript:;">
-                                        <div class="d-flex align-items-center">
-                                            <div class="notify text-primary"><ion-icon name="checkmark-done-outline"></ion-icon>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="msg-name">New Meetings <span class="msg-time float-end">2 min
-                                                        ago</span></h6>
-                                                <p class="msg-info">You have recived new meetings</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item" href="javascript:;">
-                                        <div class="d-flex align-items-center">
-                                            <div class="notify text-danger"><ion-icon name="person-outline"></ion-icon>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="msg-name">New Follow Up<span class="msg-time float-end">14 Sec
-                                                        ago</span></h6>
-                                                <p class="msg-info">5 new follow ups</p>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <a class="dropdown-item" href="javascript:;">
-                                        <div class="d-flex align-items-center">
-                                            <div class="notify text-danger"><ion-icon name="chatbox-ellipses-outline"></ion-icon>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="msg-name">New Comments <span class="msg-time float-end">4 hrs
-                                                        ago</span></h6>
-                                                <p class="msg-info">New customer comments recived</p>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-                                <a href="javascript:;">
-                                    <div class="text-center msg-footer">View All Notifications</div>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown dropdown-user-setting">
-                            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                <div class="user-setting">
-                                    <img src="assets/images/avatars/06.png" class="user-img" alt="">
-                                </div>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <div class="d-flex flex-row align-items-center gap-2">
-                                            <img src="assets/images/avatars/06.png" alt="" class="rounded-circle" width="54" height="54">
-                                            <div class="">
-                                                <h6 class="mb-0 dropdown-user-name"><?php echo $_SESSION['logined_user']; ?></h6>
-                                                <small class="mb-0 dropdown-user-designation text-secondary">User Designation</small>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="pages-user-profile.html">
-                                        <div class="d-flex align-items-center">
-                                            <div class=""><ion-icon name="person-outline"></ion-icon></div>
-                                            <div class="ms-3"><span>Profile</span></div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <div class="d-flex align-items-center">
-                                            <div class=""><ion-icon name="settings-outline"></ion-icon></div>
-                                            <div class="ms-3"><span>Setting</span></div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <div class="d-flex align-items-center">
-                                            <div class=""><ion-icon name="wallet-outline"></ion-icon></div>
-                                            <div class="ms-3"><span>Earnings</span></div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <div class="d-flex align-items-center">
-                                            <div class=""><ion-icon name="cloud-download-outline"></ion-icon></div>
-                                            <div class="ms-3"><span>Downloads</span></div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="index.php">
-                                        <div class="d-flex align-items-center">
-                                            <div class=""><ion-icon name="log-out-outline"></ion-icon></div>
-                                            <div class="ms-3"><span>Logout</span></div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-
-                </div>
-            </nav>
-        </header>
+        <?php include "includes/header.php" ?>
         <!--end top header-->
 
 
@@ -371,7 +64,9 @@ $conn = new mysqli($server, $user, $password, $database);
                     <div class="ps-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0 align-items-center">
-                                <li class="breadcrumb-item"><a href="dashboard.html"><ion-icon name="home-outline"></ion-icon></a>
+                                <li class="breadcrumb-item"><a href="dashboard.html">
+                                        <ion-icon name="home-outline"></ion-icon>
+                                    </a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">Users List</li>
                             </ol>
@@ -386,34 +81,37 @@ $conn = new mysqli($server, $user, $password, $database);
 
                 <div class="row ">
                     <div class="col-xl-12  ">
-                        <table class='table p-2 ' border="2px">
-                            <thead>
-                                <tr class=" ">
-                                    <th class="px-1 text-center">ID</th>
-                                    <th>Full Name</th>
-                                    <th>User Name</th>
-                                    <th>Status</th>
-                                    <th>DOJ</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Role</th>
-                                    <th>Update</th>
-                                    <th>Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
+                        <div class="card">
+                            <div class="card-body">
+                                <table class='table p-2'>
+                                    <thead>
+                                        <tr class=" ">
+                                            <th class="px-1 text-center">ID</th>
+                                            <th>Full Name</th>
+                                            <th>User Name</th>
+                                            <th>Status</th>
+                                            <th>DOJ</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Role</th>
+                                            <th>Update</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
                                 if ($send->num_rows > 0) {
                                     while ($data = $send->fetch_assoc()) {
                                 ?>
                                         <tr class=" ">
                                             <td class="text-center px-2"><?php echo $data['id']; ?></td>
-                                            <td><?php echo $data['first_name'] . " " . $data['middle_name'] . " " . $data['last_name']; ?></td>
+                                            <td><?php echo $data['first_name'] . " " . $data['middle_name'] . " " . $data['last_name']; ?>
+                                            </td>
                                             <td><?php echo $data['username']; ?></td>
                                             <td><?php echo $data['status']; ?></td>
                                             <td><?php echo $data['date_of_joining']; ?></td>
                                             <td><?php echo $data['email']; ?></td>
-                                            <td><?php echo $data['mobile']; ?></td>                                    
+                                            <td><?php echo $data['mobile']; ?></td>
                                             <td><?php echo $data['role']; ?></td>
                                             <td>
                                                 <a href="update-user.php?id=<?php echo $data['id']; ?> ">
@@ -427,12 +125,14 @@ $conn = new mysqli($server, $user, $password, $database);
                                             </td>
 
                                         </tr>
-                                <?php
+                                        <?php
                                     }
                                 }
                                 ?>
-                            </tbody>
-                        </table>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -440,7 +140,9 @@ $conn = new mysqli($server, $user, $password, $database);
             <!-- end page content-->
         </div>
         <!--Start Back To Top Button-->
-        <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+        <a href="javaScript:;" class="back-to-top">
+            <ion-icon name="arrow-up-outline"></ion-icon>
+        </a>
         <!--End Back To Top Button-->
 
 
@@ -452,45 +154,45 @@ $conn = new mysqli($server, $user, $password, $database);
     <!--end wrapper-->
 
     <script>
-        function toggleAddress() {
-            // Get current address values
-            var currentPropertyNo = document.querySelector('input[name="current_property_no"]').value;
-            var currentStreetName = document.querySelector('input[name="current_street_name"]').value;
-            var currentCity = document.querySelector('input[name="current_city"]').value;
-            var currentState = document.querySelector('input[name="current_state"]').value;
-            var currentPostcode = document.querySelector('input[name="current_postcode"]').value;
-            var currentCountry = document.querySelector('input[name="current_country"]').value;
+    function toggleAddress() {
+        // Get current address values
+        var currentPropertyNo = document.querySelector('input[name="current_property_no"]').value;
+        var currentStreetName = document.querySelector('input[name="current_street_name"]').value;
+        var currentCity = document.querySelector('input[name="current_city"]').value;
+        var currentState = document.querySelector('input[name="current_state"]').value;
+        var currentPostcode = document.querySelector('input[name="current_postcode"]').value;
+        var currentCountry = document.querySelector('input[name="current_country"]').value;
 
-            // Get permanent address values
-            var permanentPropertyNo = document.querySelector('input[name="permanent_property_no"]');
-            var permanentStreetName = document.querySelector('input[name="permanent_street_name"]');
-            var permanentCity = document.querySelector('input[name="permanent_city"]');
-            var permanentState = document.querySelector('input[name="permanent_state"]');
-            var permanentPostcode = document.querySelector('input[name="permanent_postcode"]');
-            var permanentCountry = document.querySelector('input[name="permanent_country"]');
+        // Get permanent address values
+        var permanentPropertyNo = document.querySelector('input[name="permanent_property_no"]');
+        var permanentStreetName = document.querySelector('input[name="permanent_street_name"]');
+        var permanentCity = document.querySelector('input[name="permanent_city"]');
+        var permanentState = document.querySelector('input[name="permanent_state"]');
+        var permanentPostcode = document.querySelector('input[name="permanent_postcode"]');
+        var permanentCountry = document.querySelector('input[name="permanent_country"]');
 
-            // Get the radio button
-            var sameAsCurrentCheckbox = document.getElementById('sameAsCurrent');
+        // Get the radio button
+        var sameAsCurrentCheckbox = document.getElementById('sameAsCurrent');
 
-            // Check if the radio button is checked
-            if (sameAsCurrentCheckbox.checked) {
-                // Set permanent address values
-                permanentPropertyNo.value = currentPropertyNo;
-                permanentStreetName.value = currentStreetName;
-                permanentCity.value = currentCity;
-                permanentState.value = currentState;
-                permanentPostcode.value = currentPostcode;
-                permanentCountry.value = currentCountry;
-            } else {
-                // Clear permanent address values
-                permanentPropertyNo.value = '';
-                permanentStreetName.value = '';
-                permanentCity.value = '';
-                permanentState.value = '';
-                permanentPostcode.value = '';
-                permanentCountry.value = '';
-            }
+        // Check if the radio button is checked
+        if (sameAsCurrentCheckbox.checked) {
+            // Set permanent address values
+            permanentPropertyNo.value = currentPropertyNo;
+            permanentStreetName.value = currentStreetName;
+            permanentCity.value = currentCity;
+            permanentState.value = currentState;
+            permanentPostcode.value = currentPostcode;
+            permanentCountry.value = currentCountry;
+        } else {
+            // Clear permanent address values
+            permanentPropertyNo.value = '';
+            permanentStreetName.value = '';
+            permanentCity.value = '';
+            permanentState.value = '';
+            permanentPostcode.value = '';
+            permanentCountry.value = '';
         }
+    }
     </script>
     <!-- JS Files-->
     <script src="assets/js/jquery.min.js"></script>
@@ -506,11 +208,11 @@ $conn = new mysqli($server, $user, $password, $database);
 
 
     <script>
-        $(document).ready(function() {
-            $("#add-customer").click(function(e) {
-                e.preventDefault(); // Prevent the default behavior
-                // Create a new customer section
-                var newCustomerSection = `
+    $(document).ready(function() {
+        $("#add-customer").click(function(e) {
+            e.preventDefault(); // Prevent the default behavior
+            // Create a new customer section
+            var newCustomerSection = `
                   <div class="customer-section">
                       <!-- Add your customer input fields here -->
                       <div class="row g-3">
@@ -607,15 +309,15 @@ $conn = new mysqli($server, $user, $password, $database);
                       </div>
                   </div>
               `;
-                // Append the new section to the container
-                $("#customer-container").append(newCustomerSection);
+            // Append the new section to the container
+            $("#customer-container").append(newCustomerSection);
 
-                // Add a click event to remove the customer section
-                $(".remove-customer").click(function() {
-                    $(this).closest(".customer-section").remove();
-                });
+            // Add a click event to remove the customer section
+            $(".remove-customer").click(function() {
+                $(this).closest(".customer-section").remove();
             });
         });
+    });
     </script>
 
 </body>

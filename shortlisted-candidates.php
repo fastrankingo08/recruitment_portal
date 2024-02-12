@@ -62,7 +62,7 @@ $conn = new mysqli($server, $user, $password, $database);
 
                 <!--start breadcrumb-->
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                    <div class="breadcrumb-title pe-3">My Candidate</div>
+                    <div class="breadcrumb-title">My Candidate</div>
                     <div class="ps-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0 align-items-center">
@@ -71,10 +71,12 @@ $conn = new mysqli($server, $user, $password, $database);
                                 <li class="breadcrumb-item active" aria-current="page">Created By Me</li>
                             </ol>
                         </nav>
+                        
                     </div>
                 </div>
 
                 <?php
+                $s = 1;
                 // $sql = "SELECT * FROM candidate_details WHERE interview_status='interview_scheduled' ";
                 $sql = "SELECT * FROM candidate_details WHERE interview_scheduled ='interview_scheduled' ";
                 $send = $conn->query($sql);
@@ -82,9 +84,12 @@ $conn = new mysqli($server, $user, $password, $database);
 
                 <div class="row ">
                     <div class="col-xl-12 ">
-                        <table class='table' id="example"  border="2px">
+                        <div class="card">
+                          <div class="card-body">
+                          <table class='table' id="example">
                             <thead>
                                 <tr class="text-center mx-auto" >
+                                    <th class="ms-0 ps-0">S.No</th>
                                     <th class="ms-0 ps-0">ID</th>
                                     <th class="ms-0 ps-0">Interview Status</th>
                                     <th class="ms-0 ps-0">Created By</th>
@@ -107,6 +112,7 @@ $conn = new mysqli($server, $user, $password, $database);
                                     while ($data = $send->fetch_assoc()) {
                                 ?>
                                         <tr class="ms-0 ps-0">
+                                            <td><?php echo $s; ?></td>
                                             <td><?php echo $data['candidate_id']; ?></td>
                                             <td><?php echo $data['interview_status']; ?></td>
                                             <td><?php echo $data['created_by']; ?></td>
@@ -123,12 +129,14 @@ $conn = new mysqli($server, $user, $password, $database);
                                             <td> <a href="interview-status.php?id=<?php echo $data['candidate_id']; ?>"><button class="button btn-primary radius-10">Update STATUS</button></a>   </td> 
                                             <td> <a href="check-interview-status.php?id=<?php echo $data['candidate_id']; ?>"><button class="button btn-primary radius-10">Check STATUS</button></a>   </td>  -->
                                         </tr>
-                                <?php
+                                <?php $s++;
                                     }
                                 }
                                 ?>
                             </tbody>
                         </table>
+                          </div>
+                         </div>
                     </div>
                 </div>
 

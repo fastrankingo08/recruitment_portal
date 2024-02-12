@@ -1552,7 +1552,7 @@ ul.categories-list li {
 }
 .badge-status.red{
     background: #dc35454d;
-    color: var(--greenColor);
+    color: #1154b5;
 }
 .badge-status.blue{
     background: #e5e7ff;
@@ -1776,6 +1776,20 @@ table.dataTable{
     max-width: 600px;
     width: 600px;
  }
+ .btn-success {
+    color: #000;
+    background-color: #b3ef42;
+    border-color: #b3ef42;
+}
+.btn-primary,.page-item.active .page-link  {
+    color: #fff;
+    background-color: var(--blueColor) !important;
+    border-color:var(--blueColor) !important;
+}
+.form-control:focus,.form-select:focus {
+    border-color: #18bb6b;
+     box-shadow: 0 0 0 0.25rem #18bb6b00;
+}
 @media screen and (max-width:620px) {
 	.top-header .navbar .dropdown-menu::after {
 		display: none

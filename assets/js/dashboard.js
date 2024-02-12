@@ -466,58 +466,7 @@ var myChart = new Chart(ctx, {
             }
       }
   });
-
-
-//   Performance Chart
-var ctxx = document.getElementById('performanceChart').getContext('2d');
-
-var gradientStroke1 = ctxx.createLinearGradient(0, 0, 0, 300);
-    gradientStroke1.addColorStop(0, '#005bea');  
-    gradientStroke1.addColorStop(1, '#00c6fb');
-
-var myChart = new Chart(ctxx, {
-    type: 'bar',
-    data: {
-        labels: ['10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm','5pm','6pm','7pm'],
-        datasets: [{
-            label: 'Visits',
-            data: [60, 50, 40, 30, 20, 25, 15,10,5,0],
-            backgroundColor: [
-                gradientStroke1
-            ],
-            borderColor: [
-                gradientStroke1
-            ],
-            borderWidth: 0,
-            borderRadius: 20
-        }]
-    },
-    options: {
-        indexAxis: 'y',
-        maintainAspectRatio: false,
-        //barPercentage: 0.9,
-        categoryPercentage: 0.3,
-        plugins: {
-            legend: {
-                maxWidth: 20,
-                boxHeight: 20,
-                position:'bottom',
-                display: false,
-            }
-        },
-        scales: {
-            x: {
-              stacked: false,
-              beginAtZero: true
-            },
-            y: {
-              stacked: false,
-              beginAtZero: true
-            }
-          }
-    }
-});
-
+ 
 // chart7
 var ctx = document.getElementById('chart7').getContext('2d');
 
