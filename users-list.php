@@ -37,6 +37,9 @@ $conn = new mysqli($server, $user, $password, $database);
     <link href="assets/css/custom.css" rel="stylesheet">
     <link href="assets/css/icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="assets/vendor/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
     <title>RAR CRM - Create Department</title>
 
 </head>
@@ -83,10 +86,10 @@ $conn = new mysqli($server, $user, $password, $database);
                     <div class="col-xl-12  ">
                         <div class="card">
                             <div class="card-body">
-                                <table class='table p-2'>
+                                <table class='table p-2' id="datatable">
                                     <thead>
-                                        <tr class=" ">
-                                            <th class="px-1 text-center">ID</th>
+                                        <tr>
+                                            <th class="text-center">S.NO</th>
                                             <th>Full Name</th>
                                             <th>User Name</th>
                                             <th>Status</th>
@@ -94,17 +97,17 @@ $conn = new mysqli($server, $user, $password, $database);
                                             <th>Email</th>
                                             <th>Phone</th>
                                             <th>Role</th>
-                                            <th>Update</th>
-                                            <th>Delete</th>
-                                        </tr>
+                                            <th>Action</th>
+                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
+                                $s = 1;
                                 if ($send->num_rows > 0) {
                                     while ($data = $send->fetch_assoc()) {
                                 ?>
                                         <tr class=" ">
-                                            <td class="text-center px-2"><?php echo $data['id']; ?></td>
+                                            <td class="text-center"><?php echo $s; ?></td>
                                             <td><?php echo $data['first_name'] . " " . $data['middle_name'] . " " . $data['last_name']; ?>
                                             </td>
                                             <td><?php echo $data['username']; ?></td>
@@ -114,20 +117,18 @@ $conn = new mysqli($server, $user, $password, $database);
                                             <td><?php echo $data['mobile']; ?></td>
                                             <td><?php echo $data['role']; ?></td>
                                             <td>
-                                                <a href="update-user.php?id=<?php echo $data['id']; ?> ">
-                                                    <button class="btn btn-primary">Update</button>
-                                                </a>
+                                                <div class="table-btn-wrapper">
+                                                  <a href="update-user.php?id=<?php echo $data['id']; ?> " class="table-btn edit">
+                                                      <i class="fa-regular fa-pen-to-square"></i> 
+                                                  </a>
+                                                  <a href="Delete-user.php?id=<?php echo $data['id']; ?> "  class="table-btn delete">
+                                                      <i class="fa-solid fa-trash"></i> 
+                                                  </a>
+                                                </div>
                                             </td>
-                                            <td>
-                                                <a href="Delete-user.php?id=<?php echo $data['id']; ?> ">
-                                                    <button class="btn btn-danger">Delete</button>
-                                                </a>
-                                            </td>
-
+                                            
                                         </tr>
-                                        <?php
-                                    }
-                                }
+                                        <?php $s++; } }
                                 ?>
                                     </tbody>
                                 </table>
@@ -205,8 +206,12 @@ $conn = new mysqli($server, $user, $password, $database);
     <script src="assets/js/form-select2.js"></script>
     <!-- Main JS-->
     <script src="assets/js/main.js"></script>
-
-
+    <script src="assets/vendor/datatable/js/jquery.dataTables.min.js"></script>
+    <script>
+       $(document).ready(function () {
+            $('#datatable').DataTable();
+        });
+    </script>
     <script>
     $(document).ready(function() {
         $("#add-customer").click(function(e) {

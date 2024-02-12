@@ -1790,6 +1790,30 @@ table.dataTable{
     border-color: #18bb6b;
      box-shadow: 0 0 0 0.25rem #18bb6b00;
 }
+.table-btn{
+    color: #fff;
+    padding: 5px;
+    display: flex;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    justify-content: center;
+    font-size: 13px;
+    align-items: center;
+}
+.table-btn-wrapper{
+    display: flex;
+    gap: 4px;
+}
+.table-btn.edit{
+    background: rgb(0, 17, 255);
+}
+.table-btn.delete{
+    background: red;
+}
+.table-btn:hover{
+    color: #fff;
+}
 @media screen and (max-width:620px) {
 	.top-header .navbar .dropdown-menu::after {
 		display: none

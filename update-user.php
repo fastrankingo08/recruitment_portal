@@ -109,291 +109,16 @@ mysqli_close($conn);
     <!--start wrapper-->
     <div class="wrapper">
         <!--start sidebar -->
-        <aside class="sidebar-wrapper" data-simplebar="true" style="background: linear-gradient(to bottom, #fff ,#fff,  #5B5E61  ); ">
-            <div class="sidebar-header bg-dark">
-                <div>
-                    <img src="assets/images/logo.png" class="logo-icon" alt="Fastranking Logo">
-                </div>
-                <div>
-                    <h4 class="logo-text text-white">FR - RECR.</h4>
-                </div>
-                <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
-                </div>
-            </div>
-            <!--navigation-->
-            <ul class="metismenu" id="menu">
-                <li>
-                    <a href="admin.php">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-home-alt"></i>
-                        </div>
-                        <div class="menu-title">Dashboard</div>
-                    </a>
-                </li>
-                <!-- New Candidate -->
-                <li>
-                    <a href="create-user.php">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-calendar-plus"></i>
-                        </div>
-                        <div class="menu-title">Create New User</div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="all-candidates.php">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-chart"></i>
-                        </div>
-                        <div class="menu-title">See All Candidates</div>
-                    </a>
-                </li>
-
-
-                <!-- My Interview -->
-                <li>
-                    <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><ion-icon name="mail-outline"></ion-icon>
-                        </div>
-                        <div class="menu-title">My Interviews</div>
-                    </a>
-                    <ul>
-                        <li><a href="create-mail-form.html"><ion-icon name="ellipse-outline"></ion-icon>Scheduled</a>
-                        </li>
-                        <li><a href="my-mail-form.html"><ion-icon name="ellipse-outline"></ion-icon>Conducted</a>
-                        </li>
-                        <li><a href="all-mail-form.html"><ion-icon name="ellipse-outline"></ion-icon>Not Conducted</a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li>
-                    <a class="has-arrow" href="javascript:;">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-calendar-plus"></i>
-                        </div>
-                        <div class="menu-title">My Hires</div>
-                    </a>
-                    <ul>
-                        <li> <a href="create-meeting.html"><ion-icon name="ellipse-outline"></ion-icon>Offered</a>
-                        </li>
-                        <li> <a href="my-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Training & Induction</a>
-                        </li>
-                        <li> <a href="all-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Joind - Active</a>
-                        </li>
-                        <li> <a href="create-meeting.html"><ion-icon name="ellipse-outline"></ion-icon>Joind - InActive</a>
-                        </li>
-                        <li> <a href="my-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Abscoding</a>
-                        </li>
-                        <li> <a href="all-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Resigned</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                <li>
-                    <a class="has-arrow" href="javascript:;">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-bell-plus"></i>
-                        </div>
-                        <div class="menu-title">Notifications </div>
-                    </a>
-                    <ul>
-                        <li> <a href="todays-meetings.html"><ion-icon name="ellipse-outline"></ion-icon>Today's Meeting</a>
-                        </li>
-                        <li> <a href="todays-followup.html"><ion-icon name="ellipse-outline"></ion-icon>Today's Follow Up</a>
-                        </li>
-
-                    </ul>
-                </li>
-                <!-- <li class="menu-label">Forms & Tables</li> -->
-                <li>
-                    <a href="meetings-calendar.html">
-                        <div class="parent-icon"><i class="fadeIn animated bx bx-calendar"></i>
-                        </div>
-                        <div class="menu-title">Meeting Calendar</div>
-                    </a>
-
-                </li>
-
-            </ul>
-            <!--end navigation-->
-        </aside>
+         <?php include "includes/sidebar.php" ?>
         <!--end sidebar -->
 
         <!--start top header-->
-        <header class="top-header" style="background: #111;">
-            <nav class="navbar navbar-expand gap-3">
-                <div class="mobile-menu-button "><ion-icon name="menu-sharp"></ion-icon></div>
-
-                <div class="mx-auto ps-5 text-white py-1">
-                    <h2>FAST RANKING RECRUITMENT</h2>
-                </div>
-
-
-                <div class="top-navbar-right">
-
-                    <ul class="navbar-nav align-items-center">
-                        <li class="nav-item dropdown dropdown-large dropdown-apps">
-                            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                <div class="">
-                                    <ion-icon name="apps-sharp"></ion-icon>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                                <div class="row row-cols-3 g-3 p-3">
-                                    <div class="col text-center">
-                                        <div class="app-box mx-auto bg-gradient-purple text-white"><ion-icon name="cart-sharp"></ion-icon>
-                                        </div>
-                                        <div class="app-title">Sales</div>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div class="app-box mx-auto bg-gradient-info text-white"><ion-icon name="people-sharp"></ion-icon>
-                                        </div>
-                                        <div class="app-title">Teams</div>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div class="app-box mx-auto bg-gradient-success text-white"><ion-icon name="shield-checkmark-sharp"></ion-icon>
-                                        </div>
-                                        <div class="app-title">Tasks</div>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div class="app-box mx-auto bg-gradient-warning text-white"><ion-icon name="file-tray-sharp"></ion-icon>
-                                        </div>
-                                        <div class="app-title">Files</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown dropdown-large">
-                            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                <div class="position-relative">
-                                    <span class="notify-badge">3</span>
-                                    <ion-icon name="notifications-sharp"></ion-icon>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a href="javascript:;">
-                                    <div class="msg-header">
-                                        <p class="msg-header-title">Notifications</p>
-                                        <!-- <p class="msg-header-clear ms-auto">Marks all as read</p> -->
-                                    </div>
-                                </a>
-                                <div class="header-notifications-list">
-                                    <a class="dropdown-item" href="javascript:;">
-                                        <div class="d-flex align-items-center">
-                                            <div class="notify text-primary"><ion-icon name="checkmark-done-outline"></ion-icon>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="msg-name">New Meetings <span class="msg-time float-end">2 min
-                                                        ago</span></h6>
-                                                <p class="msg-info">You have recived new meetings</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item" href="javascript:;">
-                                        <div class="d-flex align-items-center">
-                                            <div class="notify text-danger"><ion-icon name="person-outline"></ion-icon>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="msg-name">New Follow Up<span class="msg-time float-end">14 Sec
-                                                        ago</span></h6>
-                                                <p class="msg-info">5 new follow ups</p>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <a class="dropdown-item" href="javascript:;">
-                                        <div class="d-flex align-items-center">
-                                            <div class="notify text-danger"><ion-icon name="chatbox-ellipses-outline"></ion-icon>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="msg-name">New Comments <span class="msg-time float-end">4 hrs
-                                                        ago</span></h6>
-                                                <p class="msg-info">New customer comments recived</p>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-                                <a href="javascript:;">
-                                    <div class="text-center msg-footer">View All Notifications</div>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown dropdown-user-setting">
-                            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                <div class="user-setting">
-                                    <img src="assets/images/avatars/06.png" class="user-img" alt="">
-                                </div>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <div class="d-flex flex-row align-items-center gap-2">
-                                            <img src="assets/images/avatars/06.png" alt="" class="rounded-circle" width="54" height="54">
-                                            <div class="">
-                                                <h6 class="mb-0 dropdown-user-name"><?php echo $_SESSION['logined_user']; ?></h6>
-                                                <small class="mb-0 dropdown-user-designation text-secondary">User Designation</small>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="pages-user-profile.html">
-                                        <div class="d-flex align-items-center">
-                                            <div class=""><ion-icon name="person-outline"></ion-icon></div>
-                                            <div class="ms-3"><span>Profile</span></div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <div class="d-flex align-items-center">
-                                            <div class=""><ion-icon name="settings-outline"></ion-icon></div>
-                                            <div class="ms-3"><span>Setting</span></div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <div class="d-flex align-items-center">
-                                            <div class=""><ion-icon name="wallet-outline"></ion-icon></div>
-                                            <div class="ms-3"><span>Earnings</span></div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <div class="d-flex align-items-center">
-                                            <div class=""><ion-icon name="cloud-download-outline"></ion-icon></div>
-                                            <div class="ms-3"><span>Downloads</span></div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="index.php">
-                                        <div class="d-flex align-items-center">
-                                            <div class=""><ion-icon name="log-out-outline"></ion-icon></div>
-                                            <div class="ms-3"><span>Logout</span></div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-
-                </div>
-            </nav>
-        </header>
+        <?php include "includes/header.php" ?>
         <!--end top header-->
 
 
         <!-- start page content wrapper-->
-        <div class="page-content-wrapper" style="background: linear-gradient(to bottom, #ffff, #3D4044);">
+        <div class="page-content-wrapper">
             <!-- start page content-->
             <div class="page-content">
 
@@ -414,7 +139,7 @@ mysqli_close($conn);
                 <!--end breadcrumb-->
 
                 <div class="row">
-                    <div class="col-xl-10 mx-auto">
+                    <div class="col-xl-12 mx-auto">
                         <div class="card">
                             <div class="card-body">
                                 <div class="border p-3 rounded">
@@ -423,7 +148,7 @@ mysqli_close($conn);
                                     <form action="update-user-action.php?id=<?php echo $userId; ?>" method="post">
                                         <div class="row g-3" id="customer-container">
 
-                                            <div class="d-grid col-2">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label custom-label">Title <span class="error_msg">*</span></label>
                                                 <select class="form-select" name="title">
                                                     <option value="<?php echo $title; ?>"><?php echo $title; ?></option>
@@ -445,7 +170,7 @@ mysqli_close($conn);
                                                 <input type="text" class="form-control" name="middlename" placeholder="Middle  Name" value=" <?php echo $middlename; ?>">
                                             </div>
 
-                                            <div class="d-grid col-4">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label custom-label">Last Name<span class="error_msg">*</span></label>
                                                 <input type="text" class="form-control" name="lastname" placeholder="Last Name" value=" <?php echo $lastname; ?>">
                                             </div>
@@ -462,7 +187,7 @@ mysqli_close($conn);
                                                 }
                                             </style>
 
-                                            <div class="d-grid col-2">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label custom-label">Select Gender <span class="error_msg">*</span></label>
                                                 <select class="form-select" name="gender">
                                                     <option value="<?php echo $gender; ?>"><?php echo $gender; ?></option>
@@ -477,7 +202,7 @@ mysqli_close($conn);
                                             </div>
 
 
-                                            <div class="d-grid col-5">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label custom-label">Date Of Birth<span class="error_msg">*</span></label>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control" placeholder="DOB" value="<?php echo date("d-m-Y", strtotime($dateofbirth)); ?>" readonly>
@@ -487,7 +212,7 @@ mysqli_close($conn);
                                             </div>
 
 
-                                            <div class="d-grid col-5">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label custom-label">Date Of Joining<span class="error_msg">*</span></label>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control" placeholder="Date Of Joining" value="<?php echo date("d-m-Y", strtotime($dateofjoining)); ?>" readonly>
@@ -497,12 +222,12 @@ mysqli_close($conn);
                                                 </div>
                                             </div>
 
-                                            <div class="d-grid col-4">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label custom-label">Email ID<span class="error_msg">*</span></label>
                                                 <input type="email" class="form-control" name="emailid" placeholder="Email Id" value=" <?php echo $email; ?>">
                                             </div>
 
-                                            <div class="d-grid col-2">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label custom-label">User Name<span class="error_msg">*</span></label>
                                                 <input type="text" class="form-control" name="username" placeholder="User Name" value=" <?php echo $username; ?>">
                                             </div>
@@ -517,7 +242,7 @@ mysqli_close($conn);
                                                 <input type="text" class="form-control" name="confirmpassword" placeholder="Confirm Password" value=" <?php echo $confirmpassword; ?>">
                                             </div>
 
-                                            <div class="d-grid col-2 ">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label custom-label">User Type<span class="error_msg">*</span></label>
                                                 <select class="form-select" name="type">
                                                     <option value="<?php echo $type; ?>"><?php echo $type; ?></option>
@@ -527,20 +252,13 @@ mysqli_close($conn);
                                                     <option value="restricteduser">Restricted User</option> 
                                                 </select>
                                             </div>
-
-
-
-                                            <div class="d-grid col-2">
+ 
+                                            <div class="d-grid col-3">
                                                 <label class="form-label custom-label">Mobile<span class="error_msg">*</span></label>
                                                 <input type="text" class="form-control" name="mobile" placeholder="Mobile" value=" <?php echo $mobile; ?>">
                                             </div>
-
-
-
-
-
-
-                                            <script>
+ 
+                                             <script>
                                                 function toggleDateField(fieldName) {
                                                     var dateDisplay = document.querySelector('.input-group input[name="' + fieldName + '"]');
                                                     var datePicker = document.querySelector('.input-group input[name="' + fieldName + '_update"]');
@@ -556,7 +274,7 @@ mysqli_close($conn);
                                             </script>
 
 
-                                            <div class="d-grid col-2">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label custom-label">Reporting to<span class="error_msg">*</span></label>
                                                 <!-- <input type="text" class="form-control" name="reportingto" placeholder="Reporting to"  > -->
                                                 <select class="form-select" name="reportingto">
@@ -600,7 +318,7 @@ mysqli_close($conn);
                                             </div> -->
 
 
-                                            <div class="d-grid col-4">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label custom-label">Deapartment<span class="error_msg">*</span></label>
 
                                                 <select class="form-select" name="department">
@@ -610,7 +328,7 @@ mysqli_close($conn);
                                                 </select>
                                             </div>
 
-                                            <div class="d-grid col-4">
+                                            <div class="d-grid col-3">
                                                 <label class="form-label custom-label">Role<span class="error_msg">*</span></label>
                                                 <!-- <input type="text" class="form-control" name="role" placeholder="Role"> -->
 
@@ -628,13 +346,7 @@ mysqli_close($conn);
                                         </div>
 
                                         <div class="col-12" style="margin-top: 20px;">
-                                            <div class="row  ">
-                                                <div class="d-grid col-6 text-center mx-auto">
-                                                    <button type="submit" style="background-color: #E9ECEF; color: #212529; padding: 10px 20px; border: none; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); font-weight: 500; transition: box-shadow 0.3s ease, color 0.3s ease, font-weight 0.3s ease;" onmouseover="this.style.boxShadow='0 0 20px rgba(0, 0, 0, 0.5)'; this.style.color='#212529'; this.style.fontWeight='500';" onmouseout="this.style.boxShadow='0 0 10px rgba(0, 0, 0, 0.1)'; this.style.color='#343A40'; this.style.fontWeight='400';">
-                                                        UPDATE USER
-                                                    </button> 
-                                                </div>
-                                            </div>
+                                           <button type="submit" class="btn btn-success"> UPDATE USER  </button> 
                                         </div>
 
                                     </form>

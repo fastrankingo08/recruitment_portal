@@ -129,7 +129,7 @@ mysqli_close($conn);
                     <div class="ps-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0 align-items-center">
-                                <li class="breadcrumb-item"><a href="dashboard.html"><ion-icon name="home-outline"></ion-icon></a>
+                                <li class="breadcrumb-item"><a href="dashboard"><ion-icon name="home-outline"></ion-icon></a>
                                 </li>
                                 <li class="breadcrumb-item active text-dark" style="font-weight: 500;" aria-current="page">Schedule Interview</li>
                             </ol>
@@ -149,7 +149,7 @@ mysqli_close($conn);
                                     <form action="update-interview-status.php" method="post">
                                         <div class="row p-4">
                                             <input type="hidden" class="form-control" name="candidate_id" value="<?php echo $userId; ?>">
-                                            <div class="col-md-6">
+                                            <div class="col-xl-6">
                                                 <label class="form-label">Conducted Date<span class="error_msg">*</span></label>
                                                 <input type="date" class="form-control" name="round1_conducted_date" required>
                                             </div>
@@ -158,16 +158,20 @@ mysqli_close($conn);
                                                 <input type="text" class="form-control" name="round1_conducted_by" required>
                                             </div>
 
+                                            <div class="col-md-12">
                                             <label class="form-label mt-3">Round 1 Result<span class="error_msg">*</span></label>
-                                            <select class="form-select" name="round1_result" required>
-                                                <option value="Passed to Round II">Passed to Round II</option>
-                                                <option value="fail">Failed</option>
-                                                <option value="On Hold">Hold</option>
-                                                <option value="Offered">Offered</option>
-                                            </select>
+                                                <select class="form-select" name="round1_result" required>
+                                                    <option value="Passed to Round II">Passed to Round II</option>
+                                                    <option value="fail">Failed</option>
+                                                    <option value="On Hold">Hold</option>
+                                                    <option value="Offered">Offered</option>
+                                                </select>
+                                            </div>
 
+                                            <div class="col-md-12">
                                             <label class="form-label mt-3">Add Comment<span class="error_msg">*</span></label>
                                             <input type="text" class="form-control" name="round1_comment" required>
+                                            </div>
 
                                             <button class="text-center mx-auto mt-5 button btn-primary px-5 py-2 radius-10" style="height: auto; width:auto; font-size:18px">SUBMIT</button>
                                         </div>
@@ -182,7 +186,7 @@ mysqli_close($conn);
                                     <h4 class="text-center mx-auto">ROUND 2 STATUS</h4>
                                     <form action="update-interview-status.php" method="post">
                                         <div class="row p-4">
-                                        <input type="hidden" class="form-control" name="candidate_id" value="<?php echo $userId; ?>">
+                                          <input type="hidden" class="form-control" name="candidate_id" value="<?php echo $userId; ?>">
                                             <div class="col-md-6">
                                                 <label class="form-label">Conducted Date<span class="error_msg">*</span></label>
                                                 <input type="date" class="form-control" name="round2_conducted_date" required>
@@ -192,16 +196,20 @@ mysqli_close($conn);
                                                 <input type="text" class="form-control" name="round2_conducted_by" required>
                                             </div>
 
-                                            <label class="form-label mt-3">Round 2 result<span class="error_msg">*</span></label>
-                                            <select class="form-select" name="round2_result" required>
-                                                <option value="Passed to Round III">Passed to Round III</option>
-                                                <option value="fail">Failed</option>
-                                                <option value="On Hold">Hold</option>
-                                                <option value="Offered">Offered</option>
-                                            </select>
+                                            <div class="col-md-12">
+                                                <label class="form-label mt-3">Round 2 result<span class="error_msg">*</span></label>
+                                                <select class="form-select" name="round2_result" required>
+                                                    <option value="Passed to Round III">Passed to Round III</option>
+                                                    <option value="fail">Failed</option>
+                                                    <option value="On Hold">Hold</option>
+                                                    <option value="Offered">Offered</option>
+                                                </select>
+                                            </div>
 
+                                            <div class="col-md-12">
                                             <label class="form-label mt-3">Add Comment<span class="error_msg">*</span></label>
                                             <input type="text" class="form-control" name="round2_comment" required>
+                                            </div>
 
                                             <button class="text-center mx-auto mt-5 button btn-primary px-5 py-2 radius-10" style="height: auto; width:auto; font-size:18px">SUBMIT</button>
                                         </div>
@@ -226,16 +234,20 @@ mysqli_close($conn);
                                                 <input type="text" class="form-control" name="round3_conducted_by" required>
                                             </div>
 
-                                            <label class="form-label mt-3">Round 3 result<span class="error_msg">*</span></label>
-                                            <select class="form-select" name="round3_result" required>
-                                                <option value="Passed to Round III">Passed to Round III</option>
-                                                <option value="fail">Failed</option>
-                                                <option value="On Hold">Hold</option>
-                                                <option value="Offered">Offered</option>
-                                            </select>
+                                             <div class="col-md-12">
+                                                <label class="form-label mt-3">Round 3 result<span class="error_msg">*</span></label>
+                                                <select class="form-select" name="round3_result" required>
+                                                    <option value="Passed to Round III">Passed to Round III</option>
+                                                    <option value="fail">Failed</option>
+                                                    <option value="On Hold">Hold</option>
+                                                    <option value="Offered">Offered</option>
+                                                </select>
+                                             </div>
 
-                                            <label class="form-label mt-3">Add Comment<span class="error_msg">*</span></label>
-                                            <input type="text" class="form-control" name="round3_comment" required>
+                                             <div class="col-md-12">
+                                                <label class="form-label mt-3">Add Comment<span class="error_msg">*</span></label>
+                                                <input type="text" class="form-control" name="round3_comment" required>
+                                             </div>
 
                                             <button class="text-center mx-auto mt-5 button btn-primary px-5 py-2 radius-10" style="height: auto; width:auto; font-size:18px">SUBMIT</button>
                                         </div>
@@ -260,16 +272,20 @@ mysqli_close($conn);
                                                 <input type="text" class="form-control" name="round4_conducted_by" required>
                                             </div>
 
-                                            <label class="form-label mt-3">Round 4 result<span class="error_msg">*</span></label>
-                                            <select class="form-select" name="round4_result" required>
-                                                <option value="Passed to Round IV">Passed to Round IV</option>
-                                                <option value="fail">Failed</option>
-                                                <option value="On Hold">Hold</option>
-                                                <option value="Offered">Offered</option>
-                                            </select>
+                                             <div class="col-md-12">
+                                                <label class="form-label mt-3">Round 4 result<span class="error_msg">*</span></label>
+                                                <select class="form-select" name="round4_result" required>
+                                                    <option value="Passed to Round IV">Passed to Round IV</option>
+                                                    <option value="fail">Failed</option>
+                                                    <option value="On Hold">Hold</option>
+                                                    <option value="Offered">Offered</option>
+                                                </select>
+                                             </div>
 
-                                            <label class="form-label mt-3">Add Comment<span class="error_msg">*</span></label>
-                                            <input type="text" class="form-control" name="round4_comment" required>
+                                             <div class="col-md-12">
+                                              <label class="form-label mt-3">Add Comment<span class="error_msg">*</span></label>
+                                              <input type="text" class="form-control" name="round4_comment" required>
+                                             </div>
 
                                             <button class="text-center mx-auto mt-5 button btn-primary px-5 py-2 radius-10" style="height: auto; width:auto; font-size:18px">SUBMIT</button>
                                         </div>
@@ -295,6 +311,7 @@ mysqli_close($conn);
                                                 <input type="text" class="form-control" name="round5_conducted_by" required>
                                             </div>
 
+                                            <div class="col-md-12">
                                             <label class="form-label mt-3">Round 5 result<span class="error_msg">*</span></label>
                                             <select class="form-select" name="round5_result" required>
                                                 <option value="Passed to Round IV">Passed to Round V</option>
@@ -302,9 +319,12 @@ mysqli_close($conn);
                                                 <option value="On Hold">Hold</option>
                                                 <option value="Offered">Offered</option>
                                             </select>
+                                            </div>
 
-                                            <label class="form-label mt-3">Add Comment<span class="error_msg">*</span></label>
+                                             <div class="col-md-12">
+                                             <label class="form-label mt-3">Add Comment<span class="error_msg">*</span></label>
                                             <input type="text" class="form-control" name="round5_comment" required>
+                                             </div>
 
                                             <button class="text-center mx-auto mt-5 button btn-primary px-5 py-2 radius-10" style="height: auto; width:auto; font-size:18px">SUBMIT</button>
                                         </div>
