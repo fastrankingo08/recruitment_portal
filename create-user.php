@@ -6,17 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--plugins-->
-    <link href="assets/vendor/metismenu/css/metisMenu.min.css" rel="stylesheet" />
-    <link href="assets/vendor/select2/css/select2.min.css" rel="stylesheet" />
-    <link href="assets/vendor/select2/css/select2-bootstrap4.css" rel="stylesheet" />
-    <!-- CSS Files -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/bootstrap-extended.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
-    <link href="assets/css/icons.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <?php include "includes/head.php"; ?>
     <title>RAR CRM - Create Department</title>
 
 </head>
@@ -207,7 +197,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                          <div class="mt-3">
+                                          <div class="mt-3" style="text-align:right;">
                                              <button type="submit" class="btn btn-success">Create User</button>
                                           </div>
                                     </form>

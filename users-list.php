@@ -27,19 +27,7 @@ $conn = new mysqli($server, $user, $password, $database);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--plugins-->
-    <link href="assets/vendor/metismenu/css/metisMenu.min.css" rel="stylesheet" />
-    <link href="assets/vendor/select2/css/select2.min.css" rel="stylesheet" />
-    <link href="assets/vendor/select2/css/select2-bootstrap4.css" rel="stylesheet" />
-    <!-- CSS Files -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/bootstrap-extended.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
-    <link href="assets/css/icons.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link href="assets/vendor/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
+    <?php include "includes/head.php"; ?>
     <title>RAR CRM - Create Department</title>
 
 </head>
@@ -90,13 +78,13 @@ $conn = new mysqli($server, $user, $password, $database);
                                     <thead>
                                         <tr>
                                             <th class="text-center">S.NO</th>
-                                            <th>Full Name</th>
-                                            <th>User Name</th>
-                                            <th>Status</th>
-                                            <th>DOJ</th>
+                                            <th>Name</th>
+                                            <th>User ID</th>
+                                            <th>Role</th>
                                             <th>Email</th>
                                             <th>Phone</th>
-                                            <th>Role</th>
+                                            <th>DOJ</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                          </tr>
                                     </thead>
@@ -111,17 +99,17 @@ $conn = new mysqli($server, $user, $password, $database);
                                             <td><?php echo $data['first_name'] . " " . $data['middle_name'] . " " . $data['last_name']; ?>
                                             </td>
                                             <td><?php echo $data['username']; ?></td>
-                                            <td><?php echo $data['status']; ?></td>
-                                            <td><?php echo $data['date_of_joining']; ?></td>
-                                            <td><?php echo $data['email']; ?></td>
-                                            <td><?php echo $data['mobile']; ?></td>
                                             <td><?php echo $data['role']; ?></td>
-                                            <td>
+                                            <td style="text-transform: none;"><?php echo $data['email']; ?></td>
+                                            <td><?php echo $data['mobile']; ?></td>
+                                            <td><?php echo $data['date_of_joining']; ?></td>
+                                             <td><a href="#" class="active-btn btn-success-light"> <?php echo $data['status']; ?> </a></td>
+                                              <td>
                                                 <div class="table-btn-wrapper">
-                                                  <a href="update-user.php?id=<?php echo $data['id']; ?> " class="table-btn edit">
+                                                  <a href="update-user.php?id=<?php echo $data['id']; ?> " title="Edit" class="table-btn edit">
                                                       <i class="fa-regular fa-pen-to-square"></i> 
                                                   </a>
-                                                  <a href="Delete-user.php?id=<?php echo $data['id']; ?> "  class="table-btn delete">
+                                                  <a href="Delete-user.php?id=<?php echo $data['id']; ?> " title="Delete" class="table-btn delete">
                                                       <i class="fa-solid fa-trash"></i> 
                                                   </a>
                                                 </div>

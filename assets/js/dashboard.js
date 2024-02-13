@@ -375,26 +375,33 @@ var options = {
 
 
 // chart5
+let data1 = document.getElementById("data1");
+let data2 = document.getElementById("data2");
+let data3 = document.getElementById("data3");
+
+let val1 = parseInt(data1.innerText);
+let val2 = parseInt(data2.innerText);
+let val3 = parseInt(data3.innerText);
 var ctx = document.getElementById('chart5').getContext('2d');
 
 var gradientStroke1 = ctx.createLinearGradient(0, 0, 0, 300);
-    gradientStroke1.addColorStop(0, '#21a4df');
-    gradientStroke1.addColorStop(1, '#21a4df');
+    gradientStroke1.addColorStop(0, '#005bea');
+    gradientStroke1.addColorStop(1, '#00c6fb');
 
 var gradientStroke2 = ctx.createLinearGradient(0, 0, 0, 300);
-    gradientStroke2.addColorStop(0, '#001687');  
-    gradientStroke2.addColorStop(1, '#001687'); 
+    gradientStroke2.addColorStop(0, '#ff6a00');  
+    gradientStroke2.addColorStop(1, '#ee0979'); 
 
 var gradientStroke3 = ctx.createLinearGradient(0, 0, 0, 300);
-    gradientStroke3.addColorStop(0, '#b3ef42');  
-    gradientStroke3.addColorStop(1, '#b3ef42'); 
+    gradientStroke3.addColorStop(0, '#17ad37');  
+    gradientStroke3.addColorStop(1, '#98ec2d'); 
 
 var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
-        labels: ['Screen', 'Interview', 'Onboard'],
+        labels: ['Shortlisted', 'Offered', 'Joined'],
         datasets: [{
-            data: [1, 4, 2],
+            data: [val1, val2, val3],
             backgroundColor: [
                 gradientStroke1,
                 gradientStroke2,
@@ -405,7 +412,7 @@ var myChart = new Chart(ctx, {
     },
     options: {
         maintainAspectRatio: false,
-        cutout: 110,
+        cutout: 100,
         plugins: {
         legend: {
             display: false,
@@ -414,9 +421,6 @@ var myChart = new Chart(ctx, {
         
     }
 });
-
-
-
   // chart6
   var ctx = document.getElementById('chart6').getContext('2d');
 

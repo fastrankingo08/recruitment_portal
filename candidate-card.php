@@ -152,12 +152,12 @@ if (isset($_GET['id'])) {
 
                 <!--start breadcrumb-->
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                    <div class="breadcrumb-title pe-3">Interview</div>
+                    <div class="breadcrumb-title">Dashboard</div>
 
                     <div class="ps-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0 align-items-center">
-                                <li class="breadcrumb-item"><a href="dashboard.html"><ion-icon name="home-outline"></ion-icon></a>
+                                <li class="breadcrumb-item"><a href="#"><ion-icon name="home-outline"></ion-icon></a>
                                 </li>
                                 <li class="breadcrumb-item active text-dark" style="font-weight: 500;" aria-current="page">Schedule Interview</li>
                             </ol>
@@ -165,28 +165,34 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
                 <!--end breadcrumb-->
-                <h3 class="text-center mx-auto">[ Name : <?php echo $title . " " . $firstname . " " . $lastname; ?> | Candidate Id : <?php echo $userId; ?> ]</h3>
+                <div class="row mx-auto text-center">
+                    <div class="col-md-12">
+                       <h3 class="text-center mx-auto">[ Name : <?php echo $title . " " . $firstname . " " . $lastname; ?> | Candidate Id : <?php echo $userId; ?> ]</h3>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="card radius-10" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                         <div class="card-body bg-white">
                             <div class="row">
                                 <div class="col-md-6 my-3">
-                                    <h6><span style="display: inline-block; min-width:  250px;">FULL NAME </span> <?php echo ":" . " " . $title . " " . $firstname . " " . $lastname; ?> </h6>
+                                    <div>
+                                       <h6 class="candidate-data">Full Name:  <span><?php echo  $title . " " . $firstname . " " . $lastname; ?> </span></h6>
+                                    </div>
 
-                                    <h6><span style="display: inline-block; min-width: 250px;">GENDER </span> <?php echo ":" . " " . $gender; ?> </h6>
+                                    <h6 class="candidate-data">Gender : <span><?php echo  $gender; ?>  </span></h6>
 
-                                    <h6><span style="display: inline-block; min-width: 250px;">DOB </span> <?php echo ":" . " " . $dateofbirth; ?></h6>
-
-
-                                    <h6><span style="display: inline-block; min-width:  250px;">PHONE </span> <?php echo ":" . " " . $mobile; ?></h6>
-
-                                    <h6><span style="display: inline-block; min-width:  250px;">EMAIL </span> <?php echo ":" . " " . $email; ?></h6>
+                                    <h6 class="candidate-data">DOB :<span> <?php echo  $dateofbirth; ?> </span></h6>
 
 
-                                    <h6><span style="display: inline-block; min-width:  250px;"> ADDRESS </span> <?php echo ":" . " " . $add1 . " " . $add2 . " " . $add5 . " " . $add6; ?></h6>
+                                    <h6 class="candidate-data">Phone :<span> <?php echo  $mobile; ?> </span></h6>
 
-                                    <h6><span style="display: inline-block; min-width:  250px;">HIGHEST QUALIFICATION </span> <?php echo ":" . " " . $highest_qulification; ?></h6>
-                                    <h6><span style="display: inline-block; min-width:250px;">EMPLOYMENT STATUS </span> <?php echo ":" . " " . $employment_status; ?></h6>
+                                    <h6 class="candidate-data">Email :<span> <?php echo  $email; ?> </span></h6>
+
+
+                                    <h6 class="candidate-data"> Address :<span> <?php echo  $add1 . " " . $add2 . " " . $add5 . " " . $add6; ?> </span></h6>
+
+                                    <h6 class="candidate-data">Highest Qualification :<span> <?php echo  $highest_qulification; ?> </span></h6>
+                                    <h6 class="candidate-data">Employement Status :<span> <?php echo  $employment_status; ?> </span></h6>
 
                                 </div>
 
@@ -194,63 +200,73 @@ if (isset($_GET['id'])) {
                                 <div class="col-md-6  my-3">
 
 
-                                    <h6><span style="display: inline-block; min-width:285px;"> RELEVANT WORK EXPERIENCE </span> <?php echo ":" . " " . $relevant_work_experience; ?> </h6>
-                                    <h6><span style="display: inline-block; min-width:285px;"> OVERALL WORK EXPERIENCE </span> <?php echo ":" . " " . $overall_work_experience; ?></h6>
+                                    <h6 class="candidate-data"> Relevent Work Experience :<span> <?php echo  $relevant_work_experience; ?> </span></h6>
+                                    <h6 class="candidate-data"> Overall Work Experience :<span> <?php echo  $overall_work_experience; ?></span></h6>
 
 
-                                    <h6><span style="display: inline-block; min-width:285px;"> CURRENT SALARY </span> <?php echo ":" . " " . $current_salary; ?></h6>
+                                    <h6 class="candidate-data"> Current Salary :<span> <?php echo  $current_salary; ?></span></h6>
 
 
-                                    <h6><span style="display: inline-block; min-width:285px;">EXPECTED SALARY </span> <?php echo ":" . " " . $expected_salary; ?></h6>
+                                    <h6 class="candidate-data">Expected Salary :<span> <?php echo  $expected_salary; ?></span></h6>
 
-                                    <h6><span style="display: inline-block; min-width:285px;">LAST WORKING LOCATION </span> <?php echo ":" . " " . $last_working_location; ?></h6>
+                                    <h6 class="candidate-data">Last Working Location :<span> <?php echo  $last_working_location; ?></span></h6>
 
-                                    <h6><span style="display: inline-block; min-width:285px;">APPLIED JOB POSITION </span> <?php echo ":" . " " . $applied_job_position; ?></h6>
-                                    <h6><span style="display: inline-block; min-width:285px;">ROUND 1 INTERVIEW DATE </span> <?php echo ":" . " " . date("d M Y", strtotime($round1_interview_date)); ?></h6>
-                                    <h6><span style="display: inline-block; min-width:285px;">ROUND 1 INTERVIEW TIME </span> <?php echo ":" . " " . date("H:i", strtotime($round1_interview_time)); ?></h6>
+                                    <h6 class="candidate-data">Applied Job Position :<span> <?php echo  $applied_job_position; ?></span></h6>
+                                    <h6 class="candidate-data">Round 1 Interview Date :<span> <?php echo  date("d M Y", strtotime($round1_interview_date)); ?></span></h6>
+                                    <h6 class="candidate-data">Round 1 Interview Time :<span> <?php echo  date("H:i", strtotime($round1_interview_time)); ?></span></h6>
 
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row bg-dark text-white py-4 px-2 radius-10 mx-2 mb-4 ">
+                <div class="row mt-3">
 
-                    <h4 class="text-center mx-auto mb-4">INTERVIEW STATUS : <?php echo $interview_status;  ?> </h4>
+                    <h4 class="text-center mx-auto mb-4">Interview Status : <?php echo $interview_status;  ?> </h4>
 
                     <div class="col-md-4">
-                        <div class=" bg-white text-dark radius-10 p-2">
-                            <P>ROUND 1 RESULT : <?php echo $round1_result;  ?> </P>
-                            <P>ROUND 1 COMMENT : <?php echo $round1_comment;  ?> </P>
+                        <div class="ineterview-status-box bg-white text-dark radius-10 p-2">
+                             <ul>
+                                <li>ROUND 1 RESULT : <span> <?php echo $round1_result;  ?></span></li>
+                                <li>ROUND 1 COMMENT : <span><?php echo $round1_comment;  ?></span> </li>
+                            </ul>
                         </div>
                     </div>
 
                     <div class="col-md-4 ">
-                        <div class=" bg-white text-dark radius-10 p-2">
-                            <P>ROUND 2 RESULT : <?php echo $round2_result;  ?> </P>
-                            <P>ROUND 2 COMMENT : <?php echo $round2_comment;  ?> </P>
+                        <div class="ineterview-status-box bg-white text-dark radius-10 p-2">
+                            <ul>
+                                <li>ROUND 2 RESULT : <span><?php echo $round2_result;  ?></span> </li>
+                                <li>ROUND 2 COMMENT : <span><?php echo $round2_comment;  ?></span> </li>
+                            </ul>
                         </div>
 
                     </div>
 
                     <div class="col-md-4 ">
-                        <div class=" bg-white text-dark radius-10 p-2">
-                            <P>ROUND 3 RESULT : <?php echo $round3_result;  ?> </P>
-                            <P>ROUND 3 COMMENT : <?php echo $round3_comment;  ?> </P>
+                        <div class="ineterview-status-box bg-white text-dark radius-10 p-2">
+                            <ul>
+                                <li>ROUND 3 RESULT : <span><?php echo $round3_result;  ?></span> </li>
+                                <li>ROUND 3 COMMENT : <span><?php echo $round3_comment;  ?></span> </li>
+                            </ul>
                         </div>
                     </div>
 
                     <div class="col-md-4 my-2">
-                        <div class=" bg-white text-dark radius-10 p-2">
-                            <P>ROUND 4 RESULT : <?php echo $round4_result;  ?> </P>
-                            <P>ROUND 4 COMMENT : <?php echo $round4_comment;  ?> </P>
+                        <div class="ineterview-status-box bg-white text-dark radius-10 p-2">
+                            <ul>
+                                <li>ROUND 4 RESULT : <span><?php echo $round4_result;  ?></span> </li>
+                                <li>ROUND 4 COMMENT : <span><?php echo $round4_comment;  ?></span> </li>
+                            </ul>
                         </div>
                     </div>
 
                     <div class="col-md-4 my-2">
-                        <div class=" bg-white text-dark radius-10 p-2">
-                            <P>ROUND 5 RESULT : <?php echo $round5_result;  ?> </P>
-                            <P>ROUND 5 COMMENT : <?php echo $round5_comment;  ?> </P>
+                        <div class="ineterview-status-box bg-white text-dark radius-10 p-2">
+                            <ul>
+                                <li>ROUND 5 RESULT : <span><?php echo $round5_result;  ?></span> </li>
+                                <li>ROUND 5 COMMENT : <span><?php echo $round5_comment;  ?></span> </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

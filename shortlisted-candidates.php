@@ -26,20 +26,7 @@ $conn = new mysqli($server, $user, $password, $database);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--plugins-->
-    <link href="assets/vendor/metismenu/css/metisMenu.min.css" rel="stylesheet" />
-    <link href="assets/vendor/select2/css/select2.min.css" rel="stylesheet" />
-    <link href="assets/vendor/select2/css/select2-bootstrap4.css" rel="stylesheet" />
-    <!-- CSS Files -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/bootstrap-extended.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
-    <link href="assets/css/icons.css" rel="stylesheet">
-
-    <!-- table -->
-    <link href="assets/vendor/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <?php include "includes/head.php"; ?>
     <title>RAR CRM - Create Department</title>
 
 </head>
@@ -89,21 +76,16 @@ $conn = new mysqli($server, $user, $password, $database);
                           <table class='table' id="example">
                             <thead>
                                 <tr class="text-center mx-auto" >
-                                    <th class="ms-0 ps-0">S.No</th>
-                                    <th class="ms-0 ps-0">ID</th>
-                                    <th class="ms-0 ps-0">Interview Status</th>
-                                    <th class="ms-0 ps-0">Created By</th>
-                                    <th class="ms-0 ps-0">Name</th>
-                                    <th class="ms-0 ps-0">Email</th>
-                                    <th class="ms-0 ps-0">Phone</th>
-                                    <!-- <th class="ms-0 ps-0">Experience</th> -->
-                                    <!-- <th>Cur. Salary</th> -->
-                                    <!-- <th>Expec. Salary</th> -->
-                                    <th class="ms-0 ps-0">Applied For</th>
-                                    <th class="ms-0 ps-0">See Card</th>
-                                    <!-- <th class="ms-0 ps-0">SCHEDULE </th>
-                                    <th class="ms-0 ps-0">STATUS</th>  
-                                    <th class="ms-0 ps-0">CHECK</th>  -->
+                                    <th>S.No</th>
+                                    <th>ID</th>
+                                    <th>Interview Status</th>
+                                    <th>Created By</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                     <th>Applied For</th>
+                                    <th>Action</th>
+                                  
                                 </tr>
                             </thead>
                             <tbody>
@@ -111,23 +93,19 @@ $conn = new mysqli($server, $user, $password, $database);
                                 if ($send->num_rows > 0) {
                                     while ($data = $send->fetch_assoc()) {
                                 ?>
-                                        <tr class="ms-0 ps-0">
+                                        <tr>
                                             <td><?php echo $s; ?></td>
                                             <td><?php echo $data['candidate_id']; ?></td>
                                             <td><?php echo $data['interview_status']; ?></td>
-                                            <td><?php echo $data['created_by']; ?></td>
+                                            <td><a href="" class='btn btn-sm btn-primary-light'><?php echo $data['created_by']; ?></a></td>
                                             <td><?php echo $data['first_name'] . " " . $data['middile_name'] . " " . $data['last_name']; ?></td>
                                             <td><?php echo $data['primary_email']; ?></td>
                                             <td><?php echo $data['phone']; ?></td>
-                                            <!-- <td><?php echo $data['relevant_work_experience']; ?></td> -->
-                                            <!-- <td><?php echo $data['current_salary']; ?></td> -->
-                                            <!-- <td><?php echo $data['expected_salary']; ?></td> -->
+                                           
                                             <td><?php echo $data['applied_job_position']; ?></td>
-                                            <!-- <td><?php echo $data['round1_interview_date']; ?></td>  -->
-                                            <td> <a href="candidate-card.php?id=<?php echo $data['candidate_id']; ?>"><button class="button btn-primary radius-10">View CARD</button></a> </td>
-                                            <!-- <td> <a href="schedule-interview.php?id=<?php echo $data['candidate_id']; ?>"><button class="button btn-primary radius-10">Schedule INTERVIEW</button></a>   </td> 
-                                            <td> <a href="interview-status.php?id=<?php echo $data['candidate_id']; ?>"><button class="button btn-primary radius-10">Update STATUS</button></a>   </td> 
-                                            <td> <a href="check-interview-status.php?id=<?php echo $data['candidate_id']; ?>"><button class="button btn-primary radius-10">Check STATUS</button></a>   </td>  -->
+                                        
+                                            <td> <a href="candidate-card.php?id=<?php echo $data['candidate_id']; ?>" class="">View CARD</a> </td>
+                                             
                                         </tr>
                                 <?php $s++;
                                     }

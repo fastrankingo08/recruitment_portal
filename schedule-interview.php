@@ -116,7 +116,7 @@ mysqli_close($conn);
 
 
         <!-- start page content wrapper-->
-        <div class="page-content-wrapper" style="background: linear-gradient(to bottom, #ffff, #3D4044);">
+        <div class="page-content-wrapper">
             <!-- start page content-->
             <div class="page-content">
 
@@ -146,37 +146,36 @@ mysqli_close($conn);
 
                                 <!-- Round 1 Form -->
                                 <form action="schedule-interview-action.php" method="post">
-                                    <div class="row m-3 p-3 my-3 radius-10" style="background-color: #B8B9BA;">
-
-                                        <h4 class="text-center mx-auto text-dark" style="font-weight: 500;">ROUND 1</h4>
+                                    <div class="row m-3 p-3 my-3 radius-10 schedule-intrv-box">
+                                         <h4 class="text-center mx-auto text-dark" style="font-weight: 500;">ROUND 1</h4>
                                         <input type="hidden" name="candidate_id" id="" value="<?php echo $userId; ?>" >
                                         
                                         <hr>
                                         
                                         <div class="col-md-2  ">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Round 1 Date:</h6>
+                                                <h6 class="text-dark mx-auto">Round 1 Date:</h6>
                                                 <input type="date" class="form-control" id="round1Date" name="round1_date" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Round 1 Time:</h6>
+                                                <h6 class="text-dark mx-auto">Round 1 Time:</h6>
                                                 <input type="time" class="form-control" id="round1Date" name="round1_time" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Interviewer:</h6>
+                                                <h6 class="text-dark mx-auto">Interviewer:</h6>
                                                 <input type="text" class="form-control" id="round1Date" name="round1_interviewer" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Meeting Link:</h6>
+                                                <h6 class="text-dark mx-auto">Meeting Link:</h6>
                                                 <input type="text" class="form-control" id="round1Date" name="round1_meetinglink" required>
                                             </div>
                                         </div>
@@ -184,7 +183,7 @@ mysqli_close($conn);
                                         <div class="col-md-2">
                                             <div class="mb-3 mx-auto text-center">
                                                 <h6 class="text-dark ">SCHEDULE</h6>
-                                                <button class="  radius-10 px-5 py-1 button btn-dark text-white" style="font-size: 16px; font-weight:500;">Schedule</button>
+                                                <button class="  radius-10 px-5 py-1 button btn-success text-black" style="font-size: 16px; font-weight:500;">Schedule</button>
                                             </div>
                                         </div>
                                     </div>
@@ -194,7 +193,7 @@ mysqli_close($conn);
 
                                  <!-- Round 2 Form -->
                                 <form action="schedule-interview-action.php" method="post">
-                                    <div class="row m-3 p-3 my-3 radius-10" style="background-color: #B8B9BA;">
+                                    <div class="row m-3 p-3 my-3 radius-10 schedule-intrv-box">
 
                                         <h4 class="text-center mx-auto text-dark" style="font-weight: 500;">ROUND 2</h4>
                                         <hr>
@@ -202,28 +201,28 @@ mysqli_close($conn);
 
                                         <div class="col-md-2  ">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Round 2 Date:</h6>
+                                                <h6 class="text-dark mx-auto">Round 2 Date:</h6>
                                                 <input type="date" class="form-control" id="round1Date" name="round2_date" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Round 2 Time:</h6>
+                                                <h6 class="text-dark mx-auto">Round 2 Time:</h6>
                                                 <input type="time" class="form-control" id="round1Date" name="round2_time" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Interviewer:</h6>
+                                                <h6 class="text-dark mx-auto">Interviewer:</h6>
                                                 <input type="text" class="form-control" id="round1Date" name="round2_interviewer" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Meeting Link:</h6>
+                                                <h6 class="text-dark mx-auto">Meeting Link:</h6>
                                                 <input type="text" class="form-control" id="round1Date" name="round2_meetinglink" required>
                                             </div>
                                         </div>
@@ -231,7 +230,7 @@ mysqli_close($conn);
                                         <div class="col-md-2">
                                             <div class="mb-3 mx-auto text-center">
                                                 <h6 class="text-dark ">SCHEDULE</h6>
-                                                <button class="  radius-10 px-5 py-1 button btn-dark text-white" style="font-size: 16px; font-weight:500;">Schedule</button>
+                                                <button class="  radius-10 px-5 py-1 button btn-success text-black" style="font-size: 16px; font-weight:500;">Schedule</button>
                                             </div>
                                         </div>
                                     </div>
@@ -239,7 +238,7 @@ mysqli_close($conn);
 
                                 <!-- Round 3 Form -->
                                 <form action="schedule-interview-action.php" method="post">
-                                    <div class="row m-3 p-3 my-3 radius-10" style="background-color: #B8B9BA;">
+                                    <div class="row m-3 p-3 my-3 radius-10 schedule-intrv-box">
 
                                         <h4 class="text-center mx-auto text-dark" style="font-weight: 500;">ROUND 3</h4>
                                         <hr>
@@ -247,28 +246,28 @@ mysqli_close($conn);
 
                                         <div class="col-md-2  ">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Round 3 Date:</h6>
+                                                <h6 class="text-dark mx-auto">Round 3 Date:</h6>
                                                 <input type="date" class="form-control" id="round1Date" name="round3_date" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Round 3 Time:</h6>
+                                                <h6 class="text-dark mx-auto">Round 3 Time:</h6>
                                                 <input type="time" class="form-control" id="round1Date" name="round3_time" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Interviewer:</h6>
+                                                <h6 class="text-dark mx-auto">Interviewer:</h6>
                                                 <input type="text" class="form-control" id="round1Date" name="round3_interviewer" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Meeting Link:</h6>
+                                                <h6 class="text-dark mx-auto">Meeting Link:</h6>
                                                 <input type="text" class="form-control" id="round1Date" name="round3_meetinglink" required>
                                             </div>
                                         </div>
@@ -276,7 +275,7 @@ mysqli_close($conn);
                                         <div class="col-md-2">
                                             <div class="mb-3 mx-auto text-center">
                                                 <h6 class="text-dark ">SCHEDULE</h6>
-                                                <button class="radius-10 px-5 py-1 button btn-dark text-white" style="font-size: 16px; font-weight:500;">Schedule</button>
+                                                <button class="radius-10 px-5 py-1 button btn-success text-black" style="font-size: 16px; font-weight:500;">Schedule</button>
                                             </div>
                                         </div>
                                     </div>
@@ -284,7 +283,7 @@ mysqli_close($conn);
 
                                 <!-- Round 4 Form -->
                                 <form action="schedule-interview-action.php" method="post">
-                                    <div class="row m-3 p-3 my-3 radius-10" style="background-color: #B8B9BA;">
+                                    <div class="row m-3 p-3 my-3 radius-10 schedule-intrv-box">
 
                                         <h4 class="text-center mx-auto text-dark" style="font-weight: 500;">ROUND 4</h4>
                                         <hr>
@@ -292,28 +291,28 @@ mysqli_close($conn);
 
                                         <div class="col-md-2  ">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Round 4 Date:</h6>
+                                                <h6 class="text-dark mx-auto">Round 4 Date:</h6>
                                                 <input type="date" class="form-control" id="round1Date" name="round4_date" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Round 4 Time:</h6>
+                                                <h6 class="text-dark mx-auto">Round 4 Time:</h6>
                                                 <input type="time" class="form-control" id="round1Date" name="round4_time" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Interviewer:</h6>
+                                                <h6 class="text-dark mx-auto">Interviewer:</h6>
                                                 <input type="text" class="form-control" id="round1Date" name="round4_interviewer" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Meeting Link:</h6>
+                                                <h6 class="text-dark mx-auto">Meeting Link:</h6>
                                                 <input type="text" class="form-control" id="round1Date" name="round4_meetinglink" required>
                                             </div>
                                         </div>
@@ -321,7 +320,7 @@ mysqli_close($conn);
                                         <div class="col-md-2">
                                             <div class="mb-3 mx-auto text-center">
                                                 <h6 class="text-dark ">SCHEDULE</h6>
-                                                <button class="  radius-10 px-5 py-1 button btn-dark text-white" style="font-size: 16px; font-weight:500;">Schedule</button>
+                                                <button class="  radius-10 px-5 py-1 button btn-success" style="font-size: 16px; font-weight:500;">Schedule</button>
                                             </div>
                                         </div>
                                     </div>
@@ -329,7 +328,7 @@ mysqli_close($conn);
 
                                  <!-- Round 5 Form -->
                                 <form action="schedule-interview-action.php" method="post">
-                                    <div class="row m-3 p-3 my-3 radius-10" style="background-color: #B8B9BA;">
+                                    <div class="row m-3 p-3 my-3 radius-10 schedule-intrv-box">
 
                                         <h4 class="text-center mx-auto text-dark" style="font-weight: 500;">ROUND 5</h4>
                                         <hr>
@@ -337,28 +336,28 @@ mysqli_close($conn);
 
                                         <div class="col-md-2  ">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Round 5 Date:</h6>
+                                                <h6 class="text-dark mx-auto">Round 5 Date:</h6>
                                                 <input type="date" class="form-control" id="round1Date" name="round5_date" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Round 5 Time:</h6>
+                                                <h6 class="text-dark mx-auto">Round 5 Time:</h6>
                                                 <input type="time" class="form-control" id="round1Date" name="round5_time" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Interviewer:</h6>
+                                                <h6 class="text-dark mx-auto">Interviewer:</h6>
                                                 <input type="text" class="form-control" id="round1Date" name="round5_interviewer" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="mb-3">
-                                                <h6 class="text-dark mx-auto text-center ">Meeting Link:</h6>
+                                                <h6 class="text-dark mx-auto">Meeting Link:</h6>
                                                 <input type="text" class="form-control" id="round1Date" name="round5_meeting_link" required>
                                             </div>
                                         </div>
@@ -366,7 +365,7 @@ mysqli_close($conn);
                                         <div class="col-md-2">
                                             <div class="mb-3 mx-auto text-center">
                                                 <h6 class="text-dark ">SCHEDULE</h6>
-                                                <button class="  radius-10 px-5 py-1 button btn-dark text-white" style="font-size: 16px; font-weight:500;">Schedule</button>
+                                                <button class="  radius-10 px-5 py-1 button btn-success"  style="font-size: 16px; font-weight:500;">Schedule</button>
                                             </div>
                                         </div>
                                     </div>

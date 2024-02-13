@@ -85,16 +85,7 @@ mysqli_close($conn);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--plugins-->
-    <link href="assets/vendor/metismenu/css/metisMenu.min.css" rel="stylesheet" />
-    <link href="assets/vendor/select2/css/select2.min.css" rel="stylesheet" />
-    <link href="assets/vendor/select2/css/select2-bootstrap4.css" rel="stylesheet" />
-    <!-- CSS Files -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/bootstrap-extended.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
-    <link href="assets/css/icons.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <?php include "includes/head.php"; ?>
     <title>RAR CRM - Create Department</title>
     <style>
         .custom-label {
@@ -118,18 +109,18 @@ mysqli_close($conn);
 
 
         <!-- start page content wrapper-->
-        <div class="page-content-wrapper" style="background: linear-gradient(to bottom, #ffff, #3D4044);">
+        <div class="page-content-wrapper">
             <!-- start page content-->
             <div class="page-content">
 
                 <!--start breadcrumb-->
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                    <div class="breadcrumb-title pe-3">Interview</div>
+                    <div class="breadcrumb-title">Interview</div>
 
                     <div class="ps-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0 align-items-center">
-                                <li class="breadcrumb-item"><a href="dashboard.html"><ion-icon name="home-outline"></ion-icon></a>
+                                <li class="breadcrumb-item"><a href="admin.php"><ion-icon name="home-outline"></ion-icon></a>
                                 </li>
                                 <li class="breadcrumb-item active text-dark" style="font-weight: 500;" aria-current="page">Schedule Interview</li>
                             </ol>
@@ -138,7 +129,7 @@ mysqli_close($conn);
                 </div>
                 <!--end breadcrumb-->
 
-                <div class="container">
+                <div class="container-fluid">
 
                     <div class="row "> 
 

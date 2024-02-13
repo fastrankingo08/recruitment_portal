@@ -1587,6 +1587,7 @@ ul.categories-list li {
 }
 .left-interview-content .candidate-name{
     line-height: 6px;
+    width: 100px 
 }
 .left-interview-content .candidate-name h6{
     color: var(--blueColor);
@@ -1595,7 +1596,6 @@ ul.categories-list li {
     background: #0000ff30;
     font-size: 13px;
     padding: 3px 10px;
-    width: 71px;
     display: block;
     text-align: center;
     border-radius: 16px; 
@@ -1612,9 +1612,9 @@ ul.categories-list li {
 table.dataTable{
     background: #fff !important;
 }
-.custom-table{
+/* .custom-table{
   overflow-x: auto;
-}
+} */
 .custom-table .comman-table{
     width: 100%;
     border-collapse: separate;
@@ -1653,7 +1653,7 @@ table.dataTable{
  border-radius: 5px;
 }
 .custom-table .comman-table tbody tr td{
-     padding: 10px;
+     padding: 4px 9px;
    }
 .c-cercle {
     align-items: center;
@@ -1676,7 +1676,7 @@ table.dataTable{
  .table-badge.offer{
     color: #10acf7;
     background: #f4f4ff;
-    width: 55px;
+    width: 65px;
  }
  .table-badge.interview{
     color: #014fab;
@@ -1811,10 +1811,61 @@ table.dataTable{
 .table-btn.delete{
     background: red;
 }
+.table-btn.green{
+    background: var(--greenColor);
+    width: 55%;
+    color: var(--blueColor);
+    font-weight: 500;
+}
 .table-btn:hover{
     color: #fff;
 }
-@media screen and (max-width:620px) {
+.table tr td{
+    text-transform: capitalize;
+}
+.table tr:hover{
+    background: #aaaaaa36;
+    cursor: pointer;
+}
+.form-check-input:checked {
+    background-color: var(--blueColor);
+    border-color:var(--blueColor);
+}
+.active-btn{
+    background: #18bb6b47;
+    color: #0c9d5a;
+    font-size: 13px;
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+.schedule-intrv-box{
+    background-color: #e9ecef40;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.candidate-data{
+    border-bottom: 1px solid #aaaaaa2e;
+    padding: 6px 4px 10px;
+    font-size: 15px;
+}
+.candidate-data span {
+    margin-left: 1rem;
+    width: 500px;
+    display: inline-block;
+    float: inline-end;
+    color: #000;
+}
+.ineterview-status-box ul{
+    list-style: none;
+    padding-left: 0;
+    padding: 10px 20px;
+}
+.ineterview-status-box ul li{
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+@media screen and (max-width:767px) {
 	.top-header .navbar .dropdown-menu::after {
 		display: none
 	}
@@ -1837,6 +1888,11 @@ table.dataTable{
     }
     .admin-search input{
         width: 100%;
+    }
+    .candidate-data span {
+ 
+       width: 100%;
+       display: contents;
     }
 }
 

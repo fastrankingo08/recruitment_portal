@@ -26,18 +26,7 @@ $conn = new mysqli($server, $user, $password, $database);
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--plugins-->
-    <link href="assets/vendor/metismenu/css/metisMenu.min.css" rel="stylesheet" />
-    <link href="assets/vendor/select2/css/select2.min.css" rel="stylesheet" />
-    <link href="assets/vendor/select2/css/select2-bootstrap4.css" rel="stylesheet" />
-    <!-- CSS Files -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/bootstrap-extended.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
-    <link href="assets/css/icons.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link href="assets/vendor/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <?php include "includes/head.php"; ?>
     <title>RAR CRM - Create Department</title>
 
 </head>
@@ -61,7 +50,7 @@ $conn = new mysqli($server, $user, $password, $database);
 
                 <!--start breadcrumb-->
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                    <div class="breadcrumb-title pe-3">My Candidate</div>
+                    <div class="breadcrumb-title">My Candidate</div>
                     <div class="ps-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0 align-items-center">
@@ -94,7 +83,7 @@ $conn = new mysqli($server, $user, $password, $database);
                                       <th>Experience</th>
                                       <th>Cur. Salary</th>
                                       <th>Applied For</th>
-                                      <th>Schedule Interview</th>
+                                      <th>Schedule Status</th>
                                       <th>InterView Status</th>
                                   </tr>
                               </thead>
@@ -109,13 +98,13 @@ $conn = new mysqli($server, $user, $password, $database);
                                               <td><?php echo $data['candidate_id']; ?></td>
                                               <td><?php echo $data['created_by']; ?></td>
                                               <td><?php echo $data['first_name'] . " " . $data['middile_name'] . " " . $data['last_name']; ?></td>
-                                              <td><?php echo $data['primary_email']; ?></td>
+                                              <td style="text-transform: none;"><?php echo $data['primary_email']; ?></td>
                                               <td><?php echo $data['phone']; ?></td>
                                               <td><?php echo $data['relevant_work_experience']; ?></td>
                                               <td><?php echo $data['current_salary']; ?></td>
                                                <td><?php echo $data['applied_job_position']; ?></td>
-                                              <th><a href="schedule-interview.php"> <button class="radius-10 btn btn-sm btn-success btn-wave waves-effect waves-light">Schedule Interview</button> </a> </th>
-                                              <td><a href="interview-status.php">View Interview Status</a></td>
+                                              <th><a href="schedule-interview.php" class="table-btn green"> Schedule </a> </th>
+                                              <td><a href="interview-status.php" class="table-btn green">View</a></td>
                                           </tr>
                                   <?php $s++; }  }
                                   ?>
